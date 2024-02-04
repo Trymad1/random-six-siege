@@ -1,22 +1,21 @@
 package com.trymad.service;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FilterReader;
 import java.io.IOException;
-import java.net.URI;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import javax.swing.ImageIcon;
 
 import com.trymad.App;
 import com.trymad.api.OperatorDataExtractor;
@@ -33,28 +32,18 @@ public class FileOperatorDataExtractor implements OperatorDataExtractor {
 
     @Override
     public Optional<Operator> extractOperatorByName(String opFormattedName) {
-        System.out.println("hello");
         final URL uriPathToOpDirectory = 
             App.class.getResource(RESOURCE_RELATIVE_DIRECTORY_PATH + "/" + opFormattedName);
         if (uriPathToOpDirectory == null) return Optional.empty();
-        System.out.println("finded");
 
         Image opImage = null;
         Image opIcon = null;
-        String opName = null;
+        String opName = "hyi";
 
         try {
-            System.out.println(uriPathToOpDirectory.toURI());
-            Path pathToOpDirectory = Path.of(uriPathToOpDirectory.toURI());
-            opImage = getOpImage(pathToOpDirectory, opFormattedName);
-            System.out.println("image loaded");
-            opIcon = getOpIcon(pathToOpDirectory, opFormattedName);
-            System.out.println("icon loaded");
-            opName = getOpName(pathToOpDirectory);
-            System.out.println("name loaded");
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            return Optional.empty();
+            opImage = getOpImage(opFormattedName);
+            opIcon = getOpIcon(opFormattedName);
+            opName = getOpName(opFormattedName);
         } catch (IOException e) {
             e.printStackTrace();
             return Optional.empty();
@@ -69,28 +58,31 @@ public class FileOperatorDataExtractor implements OperatorDataExtractor {
         return null;
     }
 
-    private Image getOpImage(Path pathToOpDir, String formattedOpName) throws FileNotFoundException {
-        return new Image(new FileInputStream(pathToOpDir + "/" + formattedOpName + "_Img" + FILE_EXTENSION));
+    private Image getOpImage(String formattedOpName) throws FileNotFoundException {
+        new Image(App.class.getResourceAsStream(RESOURCE_RELATIVE_DIRECTORY_PATH + "/" + formattedOpName)).getUrl();
+        return new Image(
+            App.class.getResourceAsStream(RESOURCE_RELATIVE_DIRECTORY_PATH + "/" + formattedOpName + "/" + formattedOpName + "_Img" + FILE_EXTENSION));
     }
     
-    private Image getOpIcon(Path pathToOpDir, String formattedOpName) throws FileNotFoundException {
-        return new Image(new FileInputStream(pathToOpDir + "/" + formattedOpName + "_Icon" + FILE_EXTENSION));
+    private Image getOpIcon(String formattedOpName) throws FileNotFoundException {
+        return new Image(
+            App.class.getResourceAsStream(RESOURCE_RELATIVE_DIRECTORY_PATH + "/" + formattedOpName + "/" + formattedOpName + "_Icon" + FILE_EXTENSION));
     }
 
-    private String getOpName(Path pathToOpDir) throws IOException {
-        List<String> result = null;
+    private String getOpName(String formattedOpName) throws IOException {
+        InputStream stream = App.class.getResourceAsStream(RESOURCE_RELATIVE_DIRECTORY_PATH + "/" + formattedOpName + "/" + "name.txt");
 
-        try (Stream<Path> walk = Files.walk(pathToOpDir)) {
-            result = walk
-            .filter(p -> !Files.isDirectory(p))
-            .map(p -> p.toString())
-            .filter(f -> f.endsWith(".name"))
-            .collect(Collectors.toList());
+        String name = "NONE";
+
+        try {
+            byte[] data = stream.readAllBytes();
+            name = new String(data, "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            stream.close();
         }
-        
-        final File nameFile = new File(result.get(0));
-        final String opName = nameFile.getName().substring(0, nameFile.getName().indexOf("."));
-        return opName;
-    }
 
+        return name;
+    }
 }

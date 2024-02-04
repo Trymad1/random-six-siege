@@ -21,8 +21,8 @@ def loadOperatorData(operatorDiv):
         os.makedirs(pathToOpDirectory)
 
     loadOperatorImage(opFormattedName, responseOpImage, responseOpIcon)
-    with open(f"{targetPath}/{opFormattedName}/{opName}.name", "wb") as file:
-        pass
+    with open(f"{targetPath}/{opFormattedName}/name.txt", "w") as file:
+        file.write(opName)
     loadOperatorWeapons(opFormattedName)
 
 def loadOperatorImage(operatorName, image, icon):
@@ -73,9 +73,11 @@ def loadOperatorWeapons(operatorName):
             weaponType = weaponTypeHtml[len(weaponTypeHtml) - 1].text.replace(' ', '_').lower().strip()
 
             if weaponType: 
-                with open(f'{pathToWeaponCategory}/{formattedWeaponName}/{weaponType}.type', 'wb'): pass
+                with open(f'{pathToWeaponCategory}/{formattedWeaponName}/type.txt', 'w') as file:
+                    file.write(weaponType) 
             else: 
-                with open(f'{pathToWeaponCategory}/{formattedWeaponName}/none.type', 'wb'): pass
+                with open(f'{pathToWeaponCategory}/{formattedWeaponName}/type.txt', 'w') as file:
+                    file.write("none")
 
             print(f'Weapon {formattedWeaponName} loaded')
         print(f'Category {weaponCategoryName} laded')
