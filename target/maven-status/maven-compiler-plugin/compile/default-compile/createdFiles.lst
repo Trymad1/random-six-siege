@@ -1,5 +1,9 @@
-com/trymad/PrimaryController.class
-com/trymad/App.class
-com/trymad/SecondaryController.class
+com/trymad/model/WeaponTypes.class
+com/trymad/service/FileOperatorDataExtractor.class
 module-info.class
+com/trymad/App.class
+com/trymad/model/Weapon.class
+com/trymad/model/Operator.class
 com/trymad/Main.class
+com/trymad/controller/OpRandomController.class
+com/trymad/api/OperatorDataExtractor.class

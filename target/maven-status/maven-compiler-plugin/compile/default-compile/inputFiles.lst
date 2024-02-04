@@ -1,5 +1,9 @@
+/home/trymad/development/random-six-siege/src/main/java/com/trymad/model/WeaponTypes.java
+/home/trymad/development/random-six-siege/src/main/java/com/trymad/service/FileOperatorDataExtractor.java
+/home/trymad/development/random-six-siege/src/main/java/com/trymad/controller/OpRandomController.java
+/home/trymad/development/random-six-siege/src/main/java/com/trymad/model/Weapon.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/App.java
+/home/trymad/development/random-six-siege/src/main/java/com/trymad/api/OperatorDataExtractor.java
 /home/trymad/development/random-six-siege/src/main/java/module-info.java
-/home/trymad/development/random-six-siege/src/main/java/com/trymad/PrimaryController.java
+/home/trymad/development/random-six-siege/src/main/java/com/trymad/model/Operator.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/Main.java
-/home/trymad/development/random-six-siege/src/main/java/com/trymad/SecondaryController.java
