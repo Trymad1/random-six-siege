@@ -1,7 +1,5 @@
 package com.trymad.model;
 
-import javax.swing.ImageIcon;
-
 import javafx.scene.image.Image;
 
 public record Operator(String name, Image image, Image icon) {

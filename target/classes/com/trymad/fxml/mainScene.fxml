@@ -4,11 +4,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trymad.controller.OpRandomController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="600.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trymad.controller.OpRandomController">
    <children>
-      <ImageView fx:id="opImage" fitHeight="279.0" fitWidth="160.0" layoutX="216.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="opIcon" fitHeight="69.0" fitWidth="65.0" layoutX="268.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="opName" layoutX="219.0" layoutY="305.0" prefHeight="31.0" prefWidth="202.0" text="Label" />
+      <ImageView fx:id="opImage" fitHeight="279.0" fitWidth="160.0" layoutX="220.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="opIcon" fitHeight="69.0" fitWidth="65.0" layoutX="268.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="opName" layoutX="268.0" layoutY="303.0" prefHeight="31.0" prefWidth="202.0" text="Label" />
+      <ImageView fx:id="primaryWeaponImg" fitHeight="75.0" fitWidth="160.0" layoutX="27.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="secondaryWeaponImg" fitHeight="75.0" fitWidth="160.0" layoutX="209.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="gadgetImg" fitHeight="75.0" fitWidth="160.0" layoutX="380.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="uniqueAbilityImg" fitHeight="75.0" fitWidth="160.0" layoutX="209.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

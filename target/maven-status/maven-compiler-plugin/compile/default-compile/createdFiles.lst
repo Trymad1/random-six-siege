@@ -1,12 +1,16 @@
+com/trymad/service/OperatorDataService.class
 module-info.class
 com/trymad/Main.class
+com/trymad/repository/FileOperatorDataExtractor.class
 com/trymad/controller/OpRandomController.class
 com/trymad/api/OperatorDataExtractor.class
 com/trymad/model/WeaponCategory.class
+com/trymad/util/OperatorNotFoundException.class
+com/trymad/util/LoadoutNotFoundException.class
+com/trymad/api/OperatorAPI.class
 com/trymad/model/MapLoadout.class
 com/trymad/model/OperatorData.class
 com/trymad/App.class
 com/trymad/api/Loadout.class
 com/trymad/model/Weapon.class
 com/trymad/model/Operator.class
-com/trymad/service/FileOperatorDataExtractor.class
