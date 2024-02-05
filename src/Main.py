@@ -13,7 +13,7 @@ def loadOperatorData(operatorDiv):
     global operatorCount
     opName = operatorDiv.find('span').text.strip()
     print(f"/__________{opName}__________\\")
-    opFormattedName = opName.replace('Ã', 'A').replace('ä', 'a').replace('Ø', 'O').replace('ã', 'a').lower()
+    opFormattedName = opName.replace('Ã', 'A').replace('ä', 'a').replace('Ø', 'O').replace('ã', 'a').replace('"', "").lower()
     opImgSrc = operatorDiv.find('img', class_='oplist__card__img')['src']
     opIconSrc = operatorDiv.find('img', class_='oplist__card__icon')['src']
 
@@ -80,7 +80,7 @@ def loadOperatorWeapons(operatorName):
         for weaponInfoHtml in weaponCategoryHtml.find('div', class_='operator__loadout__category__items'):
             weaponName = weaponInfoHtml.find_next('p').text.strip().replace(' ', '_');
             print(f'Load weapon: {weaponName}')
-            formattedWeaponName = weaponName.lower();
+            formattedWeaponName = weaponName.lower().replace('"', "");
 
             if os.path.exists(f'{pathToWeaponCategory}/{formattedWeaponName}') == False:
                 os.makedirs(f'{pathToWeaponCategory}/{formattedWeaponName}')

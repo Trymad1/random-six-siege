@@ -73,9 +73,9 @@ public class OpRandomController {
     public void initialize() {
 
         OperatorDataService operatorService = new OperatorDataService();
-        OperatorData od = operatorService.getOperatorData("caveira");
-        setOperatorData(od);
         randomizer = new FileOperatorRandomiser(operatorService);
+        OperatorData od = randomizer.getRandomOperatorData();
+        setOperatorData(od);
 
     }
 

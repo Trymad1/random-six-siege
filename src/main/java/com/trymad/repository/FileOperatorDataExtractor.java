@@ -124,13 +124,12 @@ public class FileOperatorDataExtractor implements OperatorDataExtractor {
     }
 
     private Image getWeaponImage(String opFormattedName, WeaponCategory type, JSONObject weaponJson) {
-        weaponJson.getString("image");
         return new Image(App.class.getResourceAsStream(
             RESOURCE_RELATIVE_DIRECTORY_PATH + "/"
             + opFormattedName + "/"
             + "loadout/"
             + type.getFormattedName() + "/"
-            + weaponJson.getString("name").toLowerCase() + "/"
+            + weaponJson.getString("name").toLowerCase().replace("\"", "") + "/"
             + weaponJson.getString("image")));
     }
 }

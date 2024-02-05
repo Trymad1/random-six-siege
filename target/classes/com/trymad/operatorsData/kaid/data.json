@@ -46,10 +46,10 @@
       }
     },
     "unique_ability": {
-      "\"rtila\"_electroclaw": {
+      "rtila_electroclaw": {
         "name": "\"Rtila\"_Electroclaw",
         "type": "none",
-        "image": "\"rtila\"_electroclaw_Image.png"
+        "image": "rtila_electroclaw_Image.png"
       }
     }
   }
