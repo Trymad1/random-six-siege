@@ -1,0 +1,61 @@
+{
+  "name": "Fuze",
+  "formattedName": "fuze",
+  "image": "fuze_Img.png",
+  "icon": "fuze_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "ak-12": {
+        "name": "AK-12",
+        "type": "assault_rifle",
+        "image": "ak-12_Image.png"
+      },
+      "6p41": {
+        "name": "6P41",
+        "type": "light_machine_gun",
+        "image": "6p41_Image.png"
+      },
+      "ballistic_shield": {
+        "name": "Ballistic_Shield",
+        "type": "none",
+        "image": "ballistic_shield_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "pmm": {
+        "name": "PMM",
+        "type": "handgun",
+        "image": "pmm_Image.png"
+      },
+      "gsh-18": {
+        "name": "GSh-18",
+        "type": "handgun",
+        "image": "gsh-18_Image.png"
+      }
+    },
+    "gadget": {
+      "breach_charge": {
+        "name": "Breach_Charge",
+        "type": "none",
+        "image": "breach_charge_Image.png"
+      },
+      "hard_breach_charge": {
+        "name": "HARD_BREACH_CHARGE",
+        "type": "none",
+        "image": "hard_breach_charge_Image.png"
+      },
+      "smoke_grenade": {
+        "name": "Smoke_Grenade",
+        "type": "none",
+        "image": "smoke_grenade_Image.png"
+      }
+    },
+    "unique_ability": {
+      "cluster_charge": {
+        "name": "Cluster_Charge",
+        "type": "none",
+        "image": "cluster_charge_Image.png"
+      }
+    }
+  }
+}

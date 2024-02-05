@@ -1,0 +1,66 @@
+{
+  "name": "Finka",
+  "formattedName": "finka",
+  "image": "finka_Img.png",
+  "icon": "finka_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "spear_.308": {
+        "name": "Spear_.308",
+        "type": "assault_rifle",
+        "image": "spear_.308_Image.png"
+      },
+      "6p41": {
+        "name": "6P41",
+        "type": "light_machine_gun",
+        "image": "6p41_Image.png"
+      },
+      "sasg-12": {
+        "name": "SASG-12",
+        "type": "shotgun",
+        "image": "sasg-12_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "pmm": {
+        "name": "PMM",
+        "type": "handgun",
+        "image": "pmm_Image.png"
+      },
+      "gsh-18": {
+        "name": "GSh-18",
+        "type": "handgun",
+        "image": "gsh-18_Image.png"
+      }
+    },
+    "gadget": {
+      "hard_breach_charge": {
+        "name": "HARD_BREACH_CHARGE",
+        "type": "none",
+        "image": "hard_breach_charge_Image.png"
+      },
+      "stun_grenade": {
+        "name": "Stun_Grenade",
+        "type": "none",
+        "image": "stun_grenade_Image.png"
+      },
+      "smoke_grenade": {
+        "name": "Smoke_Grenade",
+        "type": "none",
+        "image": "smoke_grenade_Image.png"
+      },
+      "frag_grenade": {
+        "name": "Frag_Grenade",
+        "type": "none",
+        "image": "frag_grenade_Image.png"
+      }
+    },
+    "unique_ability": {
+      "adrenal_surge": {
+        "name": "Adrenal_Surge",
+        "type": "none",
+        "image": "adrenal_surge_Image.png"
+      }
+    }
+  }
+}

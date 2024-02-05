@@ -7,13 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Optional;
-
-import com.trymad.model.Operator;
-import com.trymad.service.FileOperatorDataExtractor;
 
 /**
  * JavaFX App

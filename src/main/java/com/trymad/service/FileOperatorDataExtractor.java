@@ -1,88 +1,136 @@
 package com.trymad.service;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FilterReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
+import org.json.JSONObject;
 
 import com.trymad.App;
+import com.trymad.api.Loadout;
 import com.trymad.api.OperatorDataExtractor;
+import com.trymad.model.MapLoadout;
 import com.trymad.model.Operator;
 import com.trymad.model.Weapon;
-import com.trymad.model.WeaponTypes;
+import com.trymad.model.WeaponCategory;
 
 import javafx.scene.image.Image;
 
 public class FileOperatorDataExtractor implements OperatorDataExtractor {
 
     private final String RESOURCE_RELATIVE_DIRECTORY_PATH = "operatorsData";
-    private final String FILE_EXTENSION = ".png";
 
     @Override
     public Optional<Operator> extractOperatorByName(String opFormattedName) {
-        final URL uriPathToOpDirectory = 
-            App.class.getResource(RESOURCE_RELATIVE_DIRECTORY_PATH + "/" + opFormattedName);
-        if (uriPathToOpDirectory == null) return Optional.empty();
 
-        Image opImage = null;
-        Image opIcon = null;
-        String opName = "hyi";
+        if (!opDirectoryIsExist(opFormattedName)) return Optional.empty();
+        final JSONObject dataJson = getJsonData(opFormattedName);
 
-        try {
-            opImage = getOpImage(opFormattedName);
-            opIcon = getOpIcon(opFormattedName);
-            opName = getOpName(opFormattedName);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return Optional.empty();
-        }
+        final Image opImage = getOpImage(dataJson);
+        final Image opIcon = getOpIcon(dataJson);
+        final String opName = getOpName(dataJson);
 
         return Optional.of(new Operator(opName, opImage, opIcon));
     }
 
     @Override
-    public Optional<Weapon> extractWeaponByName(
-        String opFormattedName, WeaponTypes weaponType, String weaponFormattedName) {
-        return null;
-    }
+    public Optional<Loadout> extractLoadoutByName(String opFormattedName) {
 
-    private Image getOpImage(String formattedOpName) throws FileNotFoundException {
-        new Image(App.class.getResourceAsStream(RESOURCE_RELATIVE_DIRECTORY_PATH + "/" + formattedOpName)).getUrl();
-        return new Image(
-            App.class.getResourceAsStream(RESOURCE_RELATIVE_DIRECTORY_PATH + "/" + formattedOpName + "/" + formattedOpName + "_Img" + FILE_EXTENSION));
-    }
-    
-    private Image getOpIcon(String formattedOpName) throws FileNotFoundException {
-        return new Image(
-            App.class.getResourceAsStream(RESOURCE_RELATIVE_DIRECTORY_PATH + "/" + formattedOpName + "/" + formattedOpName + "_Icon" + FILE_EXTENSION));
-    }
-
-    private String getOpName(String formattedOpName) throws IOException {
-        InputStream stream = App.class.getResourceAsStream(RESOURCE_RELATIVE_DIRECTORY_PATH + "/" + formattedOpName + "/" + "name.txt");
-
-        String name = "NONE";
-
-        try {
-            byte[] data = stream.readAllBytes();
-            name = new String(data, "UTF-8");
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            stream.close();
+        if (!opDirectoryIsExist(opFormattedName)) return Optional.empty();
+        final JSONObject jsonData = getJsonData(opFormattedName);
+        
+        final Map<WeaponCategory, List<Weapon>> weaponMap = MapLoadout.getWeaponMap();
+        
+        for (WeaponCategory category : WeaponCategory.values()) {
+            weaponMap.get(category).addAll(getWeaponList(category, jsonData));
         }
 
-        return name;
+        return Optional.of(new MapLoadout(weaponMap));
+    }
+
+    private List<Weapon> getWeaponList(WeaponCategory category, JSONObject jsonData) {
+        final List<Weapon> weaponList = new ArrayList<>();
+        final JSONObject weaponsCategoryJson = jsonData.getJSONObject("loadout")
+            .getJSONObject(category.getFormattedName());
+        
+        final Iterator<String> weaponsIterator = weaponsCategoryJson.keys();
+        while(weaponsIterator.hasNext()) {
+            final String weaponFormattedName = weaponsIterator.next();
+            weaponList.add(getWeapon(weaponFormattedName, category, jsonData));
+        }
+
+        return weaponList;
+    }
+
+    private Weapon getWeapon(
+        String weaponFormattedName, WeaponCategory category, JSONObject jsonData) {
+        final JSONObject weaponJson = jsonData.getJSONObject("loadout")
+        .getJSONObject(category.getFormattedName())
+        .getJSONObject(weaponFormattedName);
+
+        final String weaponName = weaponJson.getString("name");
+        final String weaponType = weaponJson.getString("type");
+        final Image weaponImage = 
+            getWeaponImage(jsonData.getString("formattedName"), category, weaponJson);
+
+        return new Weapon(weaponName, weaponType, weaponImage);
+    }
+
+    private JSONObject getJsonData(String opFormattedName) {
+        final InputStream inputStream = App.class.getResourceAsStream(
+            RESOURCE_RELATIVE_DIRECTORY_PATH + "/" + opFormattedName + "/data.json");
+        final StringBuilder content = new StringBuilder();
+
+        try (final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            String line;
+            while((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+        } catch(IOException e) {
+            return new JSONObject();
+        }
+
+        return new JSONObject(content.toString());
+    }
+
+    private boolean opDirectoryIsExist(String opFormattedName) {
+        return App.class.getResource(RESOURCE_RELATIVE_DIRECTORY_PATH + "/" + opFormattedName) 
+            == null ? false : true;
+
+    }
+
+    private Image getOpImage(JSONObject dataJson)  {
+        return new Image(App.class.getResourceAsStream(
+            RESOURCE_RELATIVE_DIRECTORY_PATH + "/" 
+            + dataJson.getString("formattedName") + "/"
+            + dataJson.getString("image")));
+    }
+    
+    private Image getOpIcon(JSONObject dataJson) {
+        return new Image(App.class.getResourceAsStream(
+            RESOURCE_RELATIVE_DIRECTORY_PATH + "/" 
+            + dataJson.getString("formattedName") + "/"
+            + dataJson.getString("icon")));
+    }
+
+    private String getOpName(JSONObject dataJson) {
+        return dataJson.getString("name");
+    }
+
+    private Image getWeaponImage(String opFormattedName, WeaponCategory type, JSONObject weaponJson) {
+        weaponJson.getString("image");
+        return new Image(App.class.getResourceAsStream(
+            RESOURCE_RELATIVE_DIRECTORY_PATH + "/"
+            + opFormattedName + "/"
+            + "loadout/"
+            + type.getFormattedName() + "/"
+            + weaponJson.getString("name").toLowerCase() + "/"
+            + weaponJson.getString("image")));
     }
 }

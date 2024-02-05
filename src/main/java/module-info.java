@@ -1,5 +1,6 @@
 module com.trymad {
     requires java.desktop;
+    requires org.json;
     requires javafx.controls;
     requires javafx.fxml;
 

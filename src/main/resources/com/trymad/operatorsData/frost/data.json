@@ -1,0 +1,51 @@
+{
+  "name": "Frost",
+  "formattedName": "frost",
+  "image": "frost_Img.png",
+  "icon": "frost_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "super_90": {
+        "name": "Super_90",
+        "type": "shotgun",
+        "image": "super_90_Image.png"
+      },
+      "9mm_c1": {
+        "name": "9mm_C1",
+        "type": "submachine_gun",
+        "image": "9mm_c1_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "mk1_9mm": {
+        "name": "Mk1_9mm",
+        "type": "handgun",
+        "image": "mk1_9mm_Image.png"
+      },
+      "ita12s": {
+        "name": "ITA12S",
+        "type": "shotgun",
+        "image": "ita12s_Image.png"
+      }
+    },
+    "gadget": {
+      "bulletproof_camera": {
+        "name": "Bulletproof_camera",
+        "type": "none",
+        "image": "bulletproof_camera_Image.png"
+      },
+      "deployable_shield": {
+        "name": "Deployable_Shield",
+        "type": "none",
+        "image": "deployable_shield_Image.png"
+      }
+    },
+    "unique_ability": {
+      "welcome_mat": {
+        "name": "Welcome_Mat",
+        "type": "none",
+        "image": "welcome_mat_Image.png"
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Castle",
+  "formattedName": "castle",
+  "image": "castle_Img.png",
+  "icon": "castle_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "ump45": {
+        "name": "UMP45",
+        "type": "submachine_gun",
+        "image": "ump45_Image.png"
+      },
+      "m1014": {
+        "name": "M1014",
+        "type": "shotgun",
+        "image": "m1014_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "5.7_usg": {
+        "name": "5.7_USG",
+        "type": "handgun",
+        "image": "5.7_usg_Image.png"
+      },
+      "super_shorty": {
+        "name": "Super_Shorty",
+        "type": "shotgun",
+        "image": "super_shorty_Image.png"
+      },
+      "m45_meusoc": {
+        "name": "M45_MEUSOC",
+        "type": "handgun",
+        "image": "m45_meusoc_Image.png"
+      }
+    },
+    "gadget": {
+      "proximity_alarm": {
+        "name": "PROXIMITY_ALARM",
+        "type": "none",
+        "image": "proximity_alarm_Image.png"
+      }
+    },
+    "unique_ability": {
+      "armor_panel": {
+        "name": "Armor_Panel",
+        "type": "none",
+        "image": "armor_panel_Image.png"
+      }
+    }
+  }
+}

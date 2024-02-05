@@ -1,0 +1,51 @@
+{
+  "name": "Thorn",
+  "formattedName": "thorn",
+  "image": "thorn_Img.png",
+  "icon": "thorn_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "uzk50gi": {
+        "name": "UZK50Gi",
+        "type": "none",
+        "image": "uzk50gi_Image.png"
+      },
+      "m870": {
+        "name": "M870",
+        "type": "shotgun",
+        "image": "m870_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "1911_tacops": {
+        "name": "1911_TACOPS",
+        "type": "handgun",
+        "image": "1911_tacops_Image.png"
+      },
+      "c75_auto": {
+        "name": "C75_Auto",
+        "type": "machine_pistol",
+        "image": "c75_auto_Image.png"
+      }
+    },
+    "gadget": {
+      "deployable_shield": {
+        "name": "Deployable_Shield",
+        "type": "none",
+        "image": "deployable_shield_Image.png"
+      },
+      "barbed_wire": {
+        "name": "Barbed_Wire",
+        "type": "none",
+        "image": "barbed_wire_Image.png"
+      }
+    },
+    "unique_ability": {
+      "razorbloom_shell": {
+        "name": "RAZORBLOOM_SHELL",
+        "type": "none",
+        "image": "razorbloom_shell_Image.png"
+      }
+    }
+  }
+}

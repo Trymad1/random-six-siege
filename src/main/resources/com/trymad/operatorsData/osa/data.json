@@ -1,0 +1,51 @@
+{
+  "name": "Osa",
+  "formattedName": "osa",
+  "image": "osa_Img.png",
+  "icon": "osa_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "556xi": {
+        "name": "556xi",
+        "type": "assault_rifle",
+        "image": "556xi_Image.png"
+      },
+      "pdw9": {
+        "name": "PDW9",
+        "type": "submachine_gun",
+        "image": "pdw9_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "pmm": {
+        "name": "PMM",
+        "type": "handgun",
+        "image": "pmm_Image.png"
+      }
+    },
+    "gadget": {
+      "smoke_grenade": {
+        "name": "Smoke_Grenade",
+        "type": "none",
+        "image": "smoke_grenade_Image.png"
+      },
+      "claymore": {
+        "name": "Claymore",
+        "type": "none",
+        "image": "claymore_Image.png"
+      },
+      "impact_grenade": {
+        "name": "Impact_Grenade",
+        "type": "none",
+        "image": "impact_grenade_Image.png"
+      }
+    },
+    "unique_ability": {
+      "talon-8_clear_shield": {
+        "name": "TALON-8_CLEAR_SHIELD",
+        "type": "none",
+        "image": "talon-8_clear_shield_Image.png"
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Solis",
+  "formattedName": "solis",
+  "image": "solis_Img.png",
+  "icon": "solis_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "p90": {
+        "name": "P90",
+        "type": "submachine_gun",
+        "image": "p90_Image.png"
+      },
+      "ita12l": {
+        "name": "ITA12L",
+        "type": "shotgun",
+        "image": "ita12l_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "smg-11": {
+        "name": "SMG-11",
+        "type": "machine_pistol",
+        "image": "smg-11_Image.png"
+      }
+    },
+    "gadget": {
+      "impact_grenade": {
+        "name": "Impact_Grenade",
+        "type": "none",
+        "image": "impact_grenade_Image.png"
+      },
+      "bulletproof_camera": {
+        "name": "Bulletproof_camera",
+        "type": "none",
+        "image": "bulletproof_camera_Image.png"
+      }
+    },
+    "unique_ability": {
+      "spec-io_electro-sensor": {
+        "name": "Spec-IO_Electro-Sensor",
+        "type": "none",
+        "image": "spec-io_electro-sensor_Image.png"
+      }
+    }
+  }
+}

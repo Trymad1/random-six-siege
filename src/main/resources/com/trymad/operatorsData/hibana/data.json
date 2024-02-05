@@ -1,0 +1,51 @@
+{
+  "name": "Hibana",
+  "formattedName": "hibana",
+  "image": "hibana_Img.png",
+  "icon": "hibana_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "type-89": {
+        "name": "Type-89",
+        "type": "assault_rifle",
+        "image": "type-89_Image.png"
+      },
+      "supernova": {
+        "name": "SuperNova",
+        "type": "shotgun",
+        "image": "supernova_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "p229": {
+        "name": "P229",
+        "type": "handgun",
+        "image": "p229_Image.png"
+      },
+      "bearing_9": {
+        "name": "Bearing_9",
+        "type": "machine_pistol",
+        "image": "bearing_9_Image.png"
+      }
+    },
+    "gadget": {
+      "stun_grenade": {
+        "name": "Stun_Grenade",
+        "type": "none",
+        "image": "stun_grenade_Image.png"
+      },
+      "breach_charge": {
+        "name": "Breach_Charge",
+        "type": "none",
+        "image": "breach_charge_Image.png"
+      }
+    },
+    "unique_ability": {
+      "x-kairos": {
+        "name": "X-Kairos",
+        "type": "none",
+        "image": "x-kairos_Image.png"
+      }
+    }
+  }
+}

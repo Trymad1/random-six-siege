@@ -1,0 +1,51 @@
+{
+  "name": "Sledge",
+  "formattedName": "sledge",
+  "image": "sledge_Img.png",
+  "icon": "sledge_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "l85a2": {
+        "name": "L85A2",
+        "type": "assault_rifle",
+        "image": "l85a2_Image.png"
+      },
+      "m590a1": {
+        "name": "M590A1",
+        "type": "shotgun",
+        "image": "m590a1_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "p226_mk_25": {
+        "name": "P226_Mk_25",
+        "type": "handgun",
+        "image": "p226_mk_25_Image.png"
+      }
+    },
+    "gadget": {
+      "frag_grenade": {
+        "name": "Frag_Grenade",
+        "type": "none",
+        "image": "frag_grenade_Image.png"
+      },
+      "stun_grenade": {
+        "name": "Stun_Grenade",
+        "type": "none",
+        "image": "stun_grenade_Image.png"
+      },
+      "impact_grenade": {
+        "name": "Impact_Grenade",
+        "type": "none",
+        "image": "impact_grenade_Image.png"
+      }
+    },
+    "unique_ability": {
+      "tactical_breaching_hammer": {
+        "name": "Tactical_Breaching_Hammer",
+        "type": "none",
+        "image": "tactical_breaching_hammer_Image.png"
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "J\u00e4ger",
+  "formattedName": "jager",
+  "image": "jager_Img.png",
+  "icon": "jager_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "m870": {
+        "name": "M870",
+        "type": "shotgun",
+        "image": "m870_Image.png"
+      },
+      "416-c_carbine": {
+        "name": "416-C_Carbine",
+        "type": "assault_rifle",
+        "image": "416-c_carbine_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "p12": {
+        "name": "P12",
+        "type": "handgun",
+        "image": "p12_Image.png"
+      }
+    },
+    "gadget": {
+      "bulletproof_camera": {
+        "name": "Bulletproof_camera",
+        "type": "none",
+        "image": "bulletproof_camera_Image.png"
+      },
+      "observation_blocker": {
+        "name": "Observation_Blocker",
+        "type": "none",
+        "image": "observation_blocker_Image.png"
+      }
+    },
+    "unique_ability": {
+      "active_defense_system": {
+        "name": "Active_Defense_System",
+        "type": "none",
+        "image": "active_defense_system_Image.png"
+      }
+    }
+  }
+}

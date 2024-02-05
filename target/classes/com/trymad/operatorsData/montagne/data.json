@@ -1,0 +1,51 @@
+{
+  "name": "Montagne",
+  "formattedName": "montagne",
+  "image": "montagne_Img.png",
+  "icon": "montagne_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "le_roc_shield": {
+        "name": "LE_ROC_SHIELD",
+        "type": "none",
+        "image": "le_roc_shield_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "p9": {
+        "name": "P9",
+        "type": "handgun",
+        "image": "p9_Image.png"
+      },
+      "lfp586": {
+        "name": "LFP586",
+        "type": "handgun",
+        "image": "lfp586_Image.png"
+      }
+    },
+    "gadget": {
+      "hard_breach_charge": {
+        "name": "HARD_BREACH_CHARGE",
+        "type": "none",
+        "image": "hard_breach_charge_Image.png"
+      },
+      "smoke_grenade": {
+        "name": "Smoke_Grenade",
+        "type": "none",
+        "image": "smoke_grenade_Image.png"
+      },
+      "impact_grenade": {
+        "name": "Impact_Grenade",
+        "type": "none",
+        "image": "impact_grenade_Image.png"
+      }
+    },
+    "unique_ability": {
+      "le_roc_shield": {
+        "name": "LE_ROC_SHIELD",
+        "type": "none",
+        "image": "le_roc_shield_Image.png"
+      }
+    }
+  }
+}

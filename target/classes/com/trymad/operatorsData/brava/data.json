@@ -1,0 +1,51 @@
+{
+  "name": "Brava",
+  "formattedName": "brava",
+  "image": "brava_Img.png",
+  "icon": "brava_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "para-308": {
+        "name": "PARA-308",
+        "type": "assault_rifle",
+        "image": "para-308_Image.png"
+      },
+      "camrs": {
+        "name": "CAMRS",
+        "type": "marksman_rifle",
+        "image": "camrs_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "usp40": {
+        "name": "USP40",
+        "type": "handgun",
+        "image": "usp40_Image.png"
+      },
+      "super_shorty": {
+        "name": "Super_Shorty",
+        "type": "shotgun",
+        "image": "super_shorty_Image.png"
+      }
+    },
+    "gadget": {
+      "smoke_grenade": {
+        "name": "Smoke_Grenade",
+        "type": "none",
+        "image": "smoke_grenade_Image.png"
+      },
+      "claymore": {
+        "name": "Claymore",
+        "type": "none",
+        "image": "claymore_Image.png"
+      }
+    },
+    "unique_ability": {
+      "kludge_drone": {
+        "name": "Kludge_Drone",
+        "type": "none",
+        "image": "kludge_drone_Image.png"
+      }
+    }
+  }
+}

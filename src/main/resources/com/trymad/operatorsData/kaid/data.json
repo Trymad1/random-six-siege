@@ -1,0 +1,56 @@
+{
+  "name": "Kaid",
+  "formattedName": "kaid",
+  "image": "kaid_Img.png",
+  "icon": "kaid_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "aug_a3": {
+        "name": "AUG_A3",
+        "type": "submachine_gun",
+        "image": "aug_a3_Image.png"
+      },
+      "tcsg12": {
+        "name": "TCSG12",
+        "type": "shotgun",
+        "image": "tcsg12_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      ".44_mag_semi-auto": {
+        "name": ".44_MAG_SEMI-AUTO",
+        "type": "handgun",
+        "image": ".44_mag_semi-auto_Image.png"
+      },
+      "lfp586": {
+        "name": "LFP586",
+        "type": "handgun",
+        "image": "lfp586_Image.png"
+      }
+    },
+    "gadget": {
+      "barbed_wire": {
+        "name": "Barbed_Wire",
+        "type": "none",
+        "image": "barbed_wire_Image.png"
+      },
+      "nitro_cell": {
+        "name": "Nitro_Cell",
+        "type": "none",
+        "image": "nitro_cell_Image.png"
+      },
+      "observation_blocker": {
+        "name": "Observation_Blocker",
+        "type": "none",
+        "image": "observation_blocker_Image.png"
+      }
+    },
+    "unique_ability": {
+      "\"rtila\"_electroclaw": {
+        "name": "\"Rtila\"_Electroclaw",
+        "type": "none",
+        "image": "\"rtila\"_electroclaw_Image.png"
+      }
+    }
+  }
+}

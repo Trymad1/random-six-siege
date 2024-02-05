@@ -1,0 +1,46 @@
+{
+  "name": "Bandit",
+  "formattedName": "bandit",
+  "image": "bandit_Img.png",
+  "icon": "bandit_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "mp7": {
+        "name": "MP7",
+        "type": "submachine_gun",
+        "image": "mp7_Image.png"
+      },
+      "m870": {
+        "name": "M870",
+        "type": "shotgun",
+        "image": "m870_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "p12": {
+        "name": "P12",
+        "type": "handgun",
+        "image": "p12_Image.png"
+      }
+    },
+    "gadget": {
+      "barbed_wire": {
+        "name": "Barbed_Wire",
+        "type": "none",
+        "image": "barbed_wire_Image.png"
+      },
+      "nitro_cell": {
+        "name": "Nitro_Cell",
+        "type": "none",
+        "image": "nitro_cell_Image.png"
+      }
+    },
+    "unique_ability": {
+      "shock_wire": {
+        "name": "Shock_Wire",
+        "type": "none",
+        "image": "shock_wire_Image.png"
+      }
+    }
+  }
+}
