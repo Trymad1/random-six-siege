@@ -5,9 +5,12 @@ from bs4 import BeautifulSoup, Tag, NavigableString;
 
 OPERATORS_DATA_PATH = 'operatorsData'
 targetPath = 'src/main/resources/com/trymad/' + OPERATORS_DATA_PATH
-
+# targetPath = OPERATORS_DATA_PATH
+operatorsList = {}
+operatorCount = 0;
 
 def loadOperatorData(operatorDiv):
+    global operatorCount
     opName = operatorDiv.find('span').text.strip()
     print(f"/__________{opName}__________\\")
     opFormattedName = opName.replace('Ã', 'A').replace('ä', 'a').replace('Ø', 'O').replace('ã', 'a').lower()
@@ -21,6 +24,10 @@ def loadOperatorData(operatorDiv):
     if os.path.exists(pathToOpDirectory) == False: 
         os.makedirs(pathToOpDirectory)
 
+    operatorsList[operatorCount] = opFormattedName
+    operatorCount = operatorCount + 1
+    print(operatorsList)
+
     loadOperatorImage(opFormattedName, responseOpImage, responseOpIcon)
     loadout = loadOperatorWeapons(opFormattedName)
     data = {
@@ -33,8 +40,7 @@ def loadOperatorData(operatorDiv):
 
     with open(pathToOpDirectory + "/data.json", "w") as json_file:
         jsonData = json.dump(data, json_file, indent=2)
-
-
+        
 def loadOperatorImage(operatorName, image, icon):
     print(f"-----Load {operatorName} images-----")
     with open(f"{targetPath}/{operatorName}/{operatorName}_Img.png", "wb") as file:
@@ -115,6 +121,8 @@ for operatorDiv in operators:
     print(f'{loadedImagesOp}/70')
     loadOperatorData(operatorDiv)
     loadedImagesOp = loadedImagesOp + 1
+with open(targetPath + "/operatorNames.json", "w") as json_file:
+    jsonData = json.dump(operatorsList, json_file, indent=2)
 print(f"{loadedImagesOp}/70 operators successfull loaded")
 
 

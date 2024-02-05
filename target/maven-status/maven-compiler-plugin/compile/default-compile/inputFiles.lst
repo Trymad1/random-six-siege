@@ -1,8 +1,10 @@
+/home/trymad/development/random-six-siege/src/main/java/com/trymad/util/OperatorsDirectoryNotFound.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/controller/OpRandomController.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/api/OperatorDataExtractor.java
 /home/trymad/development/random-six-siege/src/main/java/module-info.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/api/OperatorAPI.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/model/WeaponCategory.java
+/home/trymad/development/random-six-siege/src/main/java/com/trymad/api/OperatorRandomizer.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/model/MapLoadout.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/model/Weapon.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/api/Loadout.java
@@ -11,6 +13,7 @@
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/util/OperatorNotFoundException.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/model/Operator.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/service/OperatorDataService.java
+/home/trymad/development/random-six-siege/src/main/java/com/trymad/service/FileOperatorRandomiser.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/model/OperatorData.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/Main.java
 /home/trymad/development/random-six-siege/src/main/java/com/trymad/util/LoadoutNotFoundException.java

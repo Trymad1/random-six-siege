@@ -1,17 +1,30 @@
 package com.trymad.controller;
 
+import com.trymad.api.OperatorRandomizer;
 import com.trymad.model.OperatorData;
+import com.trymad.model.Weapon;
+import com.trymad.service.FileOperatorRandomiser;
 import com.trymad.service.OperatorDataService;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 
 public class OpRandomController {
 
+    public OperatorRandomizer randomizer;
+
     @FXML
     public ImageView gadgetImg;
+
+    @FXML
+    public Label gadgetLabel;
+
+    @FXML
+    public Label gadgetType;
 
     @FXML
     public ImageView opIcon;
@@ -26,17 +39,44 @@ public class OpRandomController {
     public ImageView primaryWeaponImg;
 
     @FXML
+    public Label primaryWeaponLabel;
+
+    @FXML
+    public Label primaryWeaponType;
+
+    @FXML
+    public Button randomButton;
+
+    @FXML
     public ImageView secondaryWeaponImg;
+
+    @FXML
+    public Label secondaryWeaponLabel;
+
+    @FXML
+    public Label secondaryWeaponType;
 
     @FXML
     public ImageView uniqueAbilityImg;
 
     @FXML
+    public Label uniqueAbilityLabel;
+
+    @FXML
+    public Label uniqueAbilityType;
+
+    @FXML
+    public void randomButtonPressed(ActionEvent event) {
+        setOperatorData(randomizer.getRandomOperatorData());
+    }
+
     public void initialize() {
 
         OperatorDataService operatorService = new OperatorDataService();
-        OperatorData od = operatorService.getOperatorData("capitao");
+        OperatorData od = operatorService.getOperatorData("caveira");
         setOperatorData(od);
+        randomizer = new FileOperatorRandomiser(operatorService);
+
     }
 
     public void setOperatorData(OperatorData data) {
@@ -44,12 +84,31 @@ public class OpRandomController {
         opImage.setImage(data.operatorData().image());
         opIcon.setImage(data.operatorData().icon());
 
-        gadgetImg.setImage(data.loadoutData().getGadgets().get(0).image());
-        primaryWeaponImg.setImage(data.loadoutData().getPrimaryWeapons().get(0).image());
-        secondaryWeaponImg.setImage(data.loadoutData().getSecondaryWeapons().get(0).image());
-        uniqueAbilityImg.setImage(data.loadoutData().getUniqueAbulity().get(0).image());
+        final Weapon primaryWeapon = data.loadoutData().getPrimaryWeapons().get(0);
+        final Weapon secondaryWeapon = data.loadoutData().getSecondaryWeapons().get(0);
+        final Weapon gadget = data.loadoutData().getGadgets().get(0);
+        final Weapon uniqueAbility = data.loadoutData().getUniqueAbulity().get(0);
 
-        System.out.println(data.loadoutData().getUniqueAbulity().get(0).image());
+        gadgetImg.setImage(gadget.image());
+        primaryWeaponImg.setImage(primaryWeapon.image());
+        secondaryWeaponImg.setImage(secondaryWeapon.image());
+        uniqueAbilityImg.setImage(uniqueAbility.image());
+
+        gadgetLabel.setText(gadget.name());
+        gadgetType.setText(getTypeForWeapon(gadget.type()));
+        
+        primaryWeaponLabel.setText(primaryWeapon.name());
+        primaryWeaponType.setText(getTypeForWeapon(primaryWeapon.type()));
+
+        secondaryWeaponLabel.setText(secondaryWeapon.name());
+        secondaryWeaponType.setText(getTypeForWeapon(secondaryWeapon.type()));
+
+        uniqueAbilityLabel.setText(uniqueAbility.name());
+        uniqueAbilityType.setText(getTypeForWeapon(uniqueAbility.type()));
+    }
+
+    private String getTypeForWeapon(String weaponType) {
+        return weaponType.toLowerCase().equals("none") ? "" : weaponType;
     }
 
 
