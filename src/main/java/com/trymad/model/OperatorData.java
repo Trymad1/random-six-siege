@@ -42,11 +42,11 @@ public record OperatorData (Operator operatorData, Loadout loadoutData) {
     }
 
     public final List<Weapon> getUniqueAbilities() {
-        return loadoutData.getUniqueAbulity();
+        return loadoutData.getUniqueAbility();
     }
 
     public final Weapon getFirstUniqueAbilities() {
-        return loadoutData.getUniqueAbulity().get(0);
+        return loadoutData.getUniqueAbility().get(0);
     }
 
     public final Weapon getFirstPrimaryWeapon() {

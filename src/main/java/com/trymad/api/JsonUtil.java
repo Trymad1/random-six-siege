@@ -2,6 +2,7 @@ package com.trymad.api;
 
 import org.json.JSONObject;
 
-public interface JSONUTil {
+public interface JsonUtil {
     JSONObject getOperatorJson(String opFormattedName);
+    JSONObject getOperatorNames();
 }

@@ -87,7 +87,7 @@ public class OpRandomController {
         final Weapon primaryWeapon = data.loadoutData().getPrimaryWeapons().get(0);
         final Weapon secondaryWeapon = data.loadoutData().getSecondaryWeapons().get(0);
         final Weapon gadget = data.loadoutData().getGadgets().get(0);
-        final Weapon uniqueAbility = data.loadoutData().getUniqueAbulity().get(0);
+        final Weapon uniqueAbility = data.loadoutData().getUniqueAbility().get(0);
 
         gadgetImg.setImage(gadget.image());
         primaryWeaponImg.setImage(primaryWeapon.image());

@@ -20,7 +20,7 @@ public record MapLoadout (Map<WeaponCategory, List<Weapon>> weaponMap) implement
     }
 
     @Override
-    public List<Weapon> getUniqueAbulity() {
+    public List<Weapon> getUniqueAbility() {
         return weaponMap.get(WeaponCategory.UNIQUE_ABILITY);
     }
 

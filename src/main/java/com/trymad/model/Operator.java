@@ -9,6 +9,7 @@ public record Operator(String name, Image image, Image icon) {
                      .replace('ä', 'a')
                      .replace('Ø', 'O')
                      .replace('ã', 'a')
+                     .replace("\"", "")
                      .toLowerCase();
     }
 }

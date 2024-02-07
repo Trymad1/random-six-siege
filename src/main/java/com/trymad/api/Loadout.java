@@ -9,7 +9,7 @@ public interface Loadout {
 
     public List<Weapon> getSecondaryWeapons();
 
-    public List<Weapon> getUniqueAbulity();
+    public List<Weapon> getUniqueAbility();
 
     public List<Weapon> getGadgets();
 }
