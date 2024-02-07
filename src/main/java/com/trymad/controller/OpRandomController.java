@@ -111,6 +111,5 @@ public class OpRandomController {
         return weaponType.toLowerCase().equals("none") ? "" : weaponType;
     }
 
-
 }
 
