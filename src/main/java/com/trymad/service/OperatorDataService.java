@@ -4,23 +4,23 @@ import java.util.Optional;
 
 import com.trymad.api.Loadout;
 import com.trymad.api.OperatorAPI;
-import com.trymad.api.OperatorDataExtractor;
+import com.trymad.api.OperatorDataRepository;
 import com.trymad.model.Operator;
 import com.trymad.model.OperatorData;
-import com.trymad.repository.FileOperatorDataExtractor;
+import com.trymad.repository.FileOperatorDataRepository;
 import com.trymad.util.LoadoutNotFoundException;
 import com.trymad.util.OperatorNotFoundException;
 
 public class OperatorDataService implements OperatorAPI {
 
-    private final OperatorDataExtractor extractor;
+    private final OperatorDataRepository extractor;
 
-    public OperatorDataService(OperatorDataExtractor extractor) {
+    public OperatorDataService(OperatorDataRepository extractor) {
         this.extractor = extractor;
     }
 
     public OperatorDataService() {
-        this.extractor = new FileOperatorDataExtractor();
+        this.extractor = new FileOperatorDataRepository();
     }
 
     @Override

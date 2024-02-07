@@ -1,9 +1,5 @@
 package com.trymad.service;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -13,7 +9,6 @@ import java.util.Random;
 
 import org.json.JSONObject;
 
-import com.trymad.App;
 import com.trymad.api.Loadout;
 import com.trymad.api.OperatorAPI;
 import com.trymad.api.OperatorRandomizer;
@@ -21,11 +16,11 @@ import com.trymad.model.MapLoadout;
 import com.trymad.model.OperatorData;
 import com.trymad.model.Weapon;
 import com.trymad.model.WeaponCategory;
+import com.trymad.util.JsonFileUtil;
 
 public class FileOperatorRandomiser implements OperatorRandomizer {
 
     private String[] operatorNames;
-    private final String RESOURCE_RELATIVE_DIRECTORY_PATH = "operatorsData";
     private final OperatorAPI operatorApi;
     private final Random random;
 
@@ -36,20 +31,8 @@ public class FileOperatorRandomiser implements OperatorRandomizer {
         random = new Random();
         previousOperator = "none";
 
-        final InputStream inputStream = App.class.getResourceAsStream(
-            RESOURCE_RELATIVE_DIRECTORY_PATH + "/operatorNames.json");
-        final StringBuilder content = new StringBuilder();
+        final JSONObject jsonInfo = new JsonFileUtil().getOperatorNames();
 
-        try (final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-            String line;
-            while((line = reader.readLine()) != null) {
-                content.append(line).append("\n");
-            }
-        } catch(IOException e) {
-            System.out.println(e);
-        }
-
-        final JSONObject jsonInfo = new JSONObject(content.toString());
         Iterator<String> keys = jsonInfo.keys();
         List<String> names = new ArrayList<>();
         while((keys.hasNext())) {
