@@ -16,11 +16,9 @@ import com.trymad.model.WeaponCategory;
 public class FileOperatorRandomiser implements OperatorRandomizer {
 
     private List<OperatorData> operators;
-    private final OperatorAPI operatorApi;
     private final Random random;
 
     public FileOperatorRandomiser(OperatorAPI api) {
-        this.operatorApi = api;
         random = new Random();
         operators = api.getOperators();
     }
