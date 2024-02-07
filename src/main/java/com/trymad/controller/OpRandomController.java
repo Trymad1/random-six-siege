@@ -10,7 +10,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 
 public class OpRandomController {
@@ -27,6 +29,9 @@ public class OpRandomController {
     public Label gadgetType;
 
     @FXML
+    public AnchorPane mainPane;
+
+    @FXML
     public ImageView opIcon;
 
     @FXML
@@ -34,6 +39,9 @@ public class OpRandomController {
 
     @FXML
     public Label opName;
+
+    @FXML
+    public AnchorPane operatorPane;
 
     @FXML
     public ImageView primaryWeaponImg;
@@ -64,6 +72,9 @@ public class OpRandomController {
 
     @FXML
     public Label uniqueAbilityType;
+
+    @FXML
+    public AnchorPane weaponPane;
 
     @FXML
     public void randomButtonPressed(ActionEvent event) {
@@ -105,6 +116,12 @@ public class OpRandomController {
 
         uniqueAbilityLabel.setText(uniqueAbility.name());
         uniqueAbilityType.setText(getTypeForWeapon(uniqueAbility.type()));
+
+        ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setBrightness(-1.0); // Устанавливаем яркость на минимум
+        colorAdjust.setContrast(-1.0); // Устанавливаем контрастность на минимум
+        colorAdjust.setSaturation(0.0); // Устанавливаем насыщенность на ноль
+        uniqueAbilityImg.setEffect(colorAdjust);
     }
 
     private String getTypeForWeapon(String weaponType) {

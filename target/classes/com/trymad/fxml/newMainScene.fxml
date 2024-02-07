@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" prefHeight="428.0" prefWidth="716.0" styleClass="mainBackground" stylesheets="@../css/mainBackground.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trymad.controller.OpRandomController">
+   <children>
+      <Button fx:id="randomButton" layoutX="417.0" layoutY="392.0" mnemonicParsing="false" onAction="#randomButtonPressed" prefHeight="28.0" prefWidth="128.0" styleClass="randomButton" stylesheets="@../css/button.css" text="RANDOM">
+         <font>
+            <Font name="SansSerif Bold Italic" size="12.0" />
+         </font></Button>
+      <AnchorPane fx:id="operatorPane" layoutX="14.0" layoutY="14.0" prefHeight="403.0" prefWidth="253.0" styleClass="weaponBlock">
+         <children>
+            <ImageView fx:id="opImage" fitHeight="374.0" fitWidth="245.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../operatorsData/caveira/caveira_Img.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="opIcon" fitHeight="143.0" fitWidth="107.0" layoutX="59.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../operatorsData/caveira/caveira_Icon.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="opName" alignment="CENTER" layoutX="11.0" layoutY="376.0" prefHeight="31.0" prefWidth="202.0" text="Label" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="SansSerif Bold Italic" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="weaponPane" layoutX="252.0" layoutY="14.0" prefHeight="374.0" prefWidth="457.0">
+         <children>
+            <AnchorPane layoutX="229.0" prefHeight="187.0" prefWidth="221.0">
+               <children>
+                  <AnchorPane layoutY="34.0" prefHeight="150.0" prefWidth="220.0" styleClass="weaponBlock" stylesheets="@../css/weapon.css">
+                     <children>
+                        <Label fx:id="secondaryWeaponLabel" alignment="CENTER" prefHeight="34.0" prefWidth="221.0" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="secondaryWeaponImg" fitHeight="76.0" fitWidth="221.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../operatorsData/caveira/loadout/primary_weapon/m12/m12_Image.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="secondaryWeaponType" alignment="CENTER" layoutX="1.0" layoutY="125.0" prefHeight="28.0" prefWidth="220.0" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="221.0" styleClass="weaponTitle" text="SECONDARY WEAPON" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="187.0" prefHeight="161.0" prefWidth="221.0">
+               <children>
+                  <AnchorPane layoutY="34.0" prefHeight="150.0" prefWidth="220.0" styleClass="weaponBlock" stylesheets="@../css/weapon.css">
+                     <children>
+                        <Label fx:id="uniqueAbilityLabel" alignment="CENTER" prefHeight="34.0" prefWidth="221.0" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="uniqueAbilityImg" fitHeight="117.0" fitWidth="224.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../operatorsData/ram/loadout/unique_ability/bu-gi_auto_breacher/bu-gi_auto_breacher_Image.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D minX="221.0" minY="76.0" />
+                           </viewport>
+                        </ImageView>
+                        <Label fx:id="uniqueAbilityType" alignment="CENTER" layoutX="1.0" layoutY="125.0" prefHeight="28.0" prefWidth="220.0" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="221.0" styleClass="weaponTitle" text="UNIQUE ABILITY" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="229.0" layoutY="187.0" prefHeight="161.0" prefWidth="221.0">
+               <children>
+                  <AnchorPane layoutY="34.0" prefHeight="150.0" prefWidth="220.0" styleClass="weaponBlock" stylesheets="@../css/weapon.css">
+                     <children>
+                        <Label fx:id="gadgetLabel" alignment="CENTER" prefHeight="34.0" prefWidth="221.0" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="gadgetImg" fitHeight="76.0" fitWidth="221.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../operatorsData/caveira/loadout/primary_weapon/m12/m12_Image.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="gadgetType" alignment="CENTER" layoutX="1.0" layoutY="125.0" prefHeight="28.0" prefWidth="220.0" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="221.0" styleClass="weaponTitle" text="GADGET" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="2.0" prefHeight="187.0" prefWidth="221.0">
+               <children>
+                  <AnchorPane layoutY="34.0" prefHeight="150.0" prefWidth="220.0" styleClass="weaponBlock" stylesheets="@../css/weapon.css">
+                     <children>
+                        <Label fx:id="primaryWeaponLabel" alignment="CENTER" prefHeight="34.0" prefWidth="221.0" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="primaryWeaponImg" fitHeight="76.0" fitWidth="221.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../operatorsData/caveira/loadout/primary_weapon/m12/m12_Image.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="primaryWeaponType" alignment="CENTER" layoutX="1.0" layoutY="125.0" prefHeight="28.0" prefWidth="220.0" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="221.0" styleClass="weaponTitle" text="PRIMARY WEAPON" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

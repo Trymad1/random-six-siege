@@ -17,7 +17,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("fxml/mainScene"), 420, 800);
+        scene = new Scene(loadFXML("fxml/newMainScene"), 716, 428);
+        stage.setTitle("Random Six Siege");
         stage.setScene(scene);
         stage.show();
     }

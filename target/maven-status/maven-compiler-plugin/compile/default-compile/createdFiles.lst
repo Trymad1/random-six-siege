@@ -1,10 +1,12 @@
 com/trymad/service/OperatorDataService.class
+com/trymad/util/DirectoryUtils.class
 module-info.class
 com/trymad/Main.class
-com/trymad/repository/FileOperatorDataExtractor.class
 com/trymad/controller/OpRandomController.class
 com/trymad/api/OperatorRandomizer.class
-com/trymad/api/OperatorDataExtractor.class
+com/trymad/api/OperatorDataRepository.class
+com/trymad/api/JsonUtil.class
+com/trymad/repository/FileOperatorDataRepository.class
 com/trymad/model/WeaponCategory.class
 com/trymad/service/FileOperatorRandomiser.class
 com/trymad/util/OperatorNotFoundException.class
@@ -14,6 +16,7 @@ com/trymad/model/MapLoadout.class
 com/trymad/model/OperatorData.class
 com/trymad/App.class
 com/trymad/api/Loadout.class
+com/trymad/util/JsonFileUtil.class
 com/trymad/util/OperatorsDirectoryNotFound.class
 com/trymad/model/Weapon.class
 com/trymad/model/Operator.class

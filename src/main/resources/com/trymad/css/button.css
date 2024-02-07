@@ -1,0 +1,7 @@
+.randomButton {
+    -fx-background-color: #2499ff;
+}
+
+.randomButton:hover {
+    -fx-effect: dropshadow(three-pass-box, #b3b3b3, 10, 0, 0, 0);
+}
