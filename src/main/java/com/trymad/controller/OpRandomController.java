@@ -91,7 +91,7 @@ public class OpRandomController {
     }
 
     public void setOperatorData(OperatorData data) {
-        opName.setText(data.operatorData().name());
+        opName.setText(data.operatorData().name().toUpperCase());
         opImage.setImage(data.operatorData().image());
         opIcon.setImage(data.operatorData().icon());
 
