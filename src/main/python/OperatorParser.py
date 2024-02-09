@@ -4,16 +4,22 @@ import json
 from bs4 import BeautifulSoup, Tag, NavigableString;
 
 OPERATORS_DATA_PATH = 'operatorsData'
-targetPath = 'src/main/resources/com/trymad/' + OPERATORS_DATA_PATH
-# targetPath = OPERATORS_DATA_PATH
+# targetPath = 'src/main/resources/com/trymad/' + OPERATORS_DATA_PATH
+targetPath = OPERATORS_DATA_PATH
 operatorsList = {}
 operatorCount = 0;
+
+URL = "https://www.ubisoft.com/en-us/game/rainbow-six/siege/game-info/operators"
+operatorsHtml = requests.get(URL)
+
+soup = BeautifulSoup(operatorsHtml.text, 'html.parser')
+operators = soup.find('div', class_='oplist__cards__wrapper')
 
 def loadOperatorData(operatorDiv):
     global operatorCount
     opName = operatorDiv.find('span').text.strip()
     print(f"/__________{opName}__________\\")
-    opFormattedName = opName.replace('Ã', 'A').replace('ä', 'a').replace('Ø', 'O').replace('ã', 'a').replace('"', "").lower()
+    opFormattedName = getFormattedName(opName)
     opImgSrc = operatorDiv.find('img', class_='oplist__card__img')['src']
     opIconSrc = operatorDiv.find('img', class_='oplist__card__icon')['src']
 
@@ -26,7 +32,6 @@ def loadOperatorData(operatorDiv):
 
     operatorsList[operatorCount] = opFormattedName
     operatorCount = operatorCount + 1
-    print(operatorsList)
 
     loadOperatorImage(opFormattedName, responseOpImage, responseOpIcon)
     loadout = loadOperatorWeapons(opFormattedName)
@@ -42,7 +47,7 @@ def loadOperatorData(operatorDiv):
         jsonData = json.dump(data, json_file, indent=2)
         
 def loadOperatorImage(operatorName, image, icon):
-    print(f"-----Load {operatorName} images-----")
+    print(f"Load {operatorName} images")
     with open(f"{targetPath}/{operatorName}/{operatorName}_Img.png", "wb") as file:
         file.write(image.content)
     with open(f"{targetPath}/{operatorName}/{operatorName}_Icon.png", "wb") as file:
@@ -106,45 +111,29 @@ def loadOperatorWeapons(operatorName):
     print(f'{operatorName} weapons loaded')
     return loadout;
 
+
+def loadAllOperators():
+    loadedOp = 0;
+    if os.path.exists(f"{targetPath}") == False: os.makedirs(f'{targetPath}')
+    for operatorDiv in operators:
+        print(f'{loadedOp}/70')
+        loadOperatorData(operatorDiv)
+        loadedOp = loadedOp + 1
+    with open(targetPath + "/operatorNames.json", "w") as json_file:
+        jsonData = json.dump(operatorsList, json_file, indent=2)
+    print(f"{loadedOp}/70 operators successfull loaded")
+
+def loadOp(name):
+    for operatorDiv in operators:
+        opName = operatorDiv.find('span').text.strip();
+        opFormattedName = getFormattedName(opName)
+        if opFormattedName == name:
+            if os.path.exists(f"{targetPath}") == False: os.makedirs(f'{targetPath}')
+            loadOperatorData(operatorDiv)
+            return
+    print('Operator don`t exist, or incorrect name')
     
-
-URL = "https://www.ubisoft.com/en-us/game/rainbow-six/siege/game-info/operators"
-operatorsHtml = requests.get(URL)
-
-soup = BeautifulSoup(operatorsHtml.text, 'html.parser')
-operators = soup.find('div', class_='oplist__cards__wrapper')
 
 # Загрузка изображений с оперативниками, создание папок
-loadedImagesOp = 0;
-if os.path.exists(f"{targetPath}") == False: os.makedirs(f'{targetPath}')
-for operatorDiv in operators:
-    print(f'{loadedImagesOp}/70')
-    loadOperatorData(operatorDiv)
-    loadedImagesOp = loadedImagesOp + 1
-with open(targetPath + "/operatorNames.json", "w") as json_file:
-    jsonData = json.dump(operatorsList, json_file, indent=2)
-print(f"{loadedImagesOp}/70 operators successfull loaded")
-
-
-
-
-
-    
-            
-            
-            
-            
-
-    
-
-
-
-
-
-
-
-
-    
-
-    
-    
+def getFormattedName(name):
+    return name.replace('Ã', 'A').replace('ä', 'a').replace('Ø', 'O').replace('ã', 'a').replace('"', "").lower()
