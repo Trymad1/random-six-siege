@@ -1,0 +1,61 @@
+{
+  "name": "Doc",
+  "formattedName": "doc",
+  "image": "doc_Img.png",
+  "icon": "doc_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "mp5": {
+        "name": "MP5",
+        "type": "submachine_gun",
+        "image": "mp5_Image.png"
+      },
+      "p90": {
+        "name": "P90",
+        "type": "submachine_gun",
+        "image": "p90_Image.png"
+      },
+      "sg-cqb": {
+        "name": "SG-CQB",
+        "type": "shotgun",
+        "image": "sg-cqb_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "p9": {
+        "name": "P9",
+        "type": "handgun",
+        "image": "p9_Image.png"
+      },
+      "lfp586": {
+        "name": "LFP586",
+        "type": "handgun",
+        "image": "lfp586_Image.png"
+      },
+      "bailiff_410": {
+        "name": "Bailiff_410",
+        "type": "handgun",
+        "image": "bailiff_410_Image.png"
+      }
+    },
+    "gadget": {
+      "bulletproof_camera": {
+        "name": "Bulletproof_camera",
+        "type": "none",
+        "image": "bulletproof_camera_Image.png"
+      },
+      "barbed_wire": {
+        "name": "Barbed_Wire",
+        "type": "none",
+        "image": "barbed_wire_Image.png"
+      }
+    },
+    "unique_ability": {
+      "stim_pistol": {
+        "name": "Stim_Pistol",
+        "type": "none",
+        "image": "stim_pistol_Image.png"
+      }
+    }
+  }
+}

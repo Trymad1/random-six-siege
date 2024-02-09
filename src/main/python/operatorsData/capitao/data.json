@@ -1,0 +1,51 @@
+{
+  "name": "CAPIT\u00c3O",
+  "formattedName": "capitao",
+  "image": "capitao_Img.png",
+  "icon": "capitao_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "para-308": {
+        "name": "PARA-308",
+        "type": "assault_rifle",
+        "image": "para-308_Image.png"
+      },
+      "m249": {
+        "name": "M249",
+        "type": "light_machine_gun",
+        "image": "m249_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "prb92": {
+        "name": "PRB92",
+        "type": "handgun",
+        "image": "prb92_Image.png"
+      },
+      "gonne-6": {
+        "name": "Gonne-6",
+        "type": "hand_cannon",
+        "image": "gonne-6_Image.png"
+      }
+    },
+    "gadget": {
+      "claymore": {
+        "name": "Claymore",
+        "type": "none",
+        "image": "claymore_Image.png"
+      },
+      "hard_breach_charge": {
+        "name": "HARD_BREACH_CHARGE",
+        "type": "none",
+        "image": "hard_breach_charge_Image.png"
+      }
+    },
+    "unique_ability": {
+      "tactical_crossbow": {
+        "name": "Tactical_Crossbow",
+        "type": "none",
+        "image": "tactical_crossbow_Image.png"
+      }
+    }
+  }
+}

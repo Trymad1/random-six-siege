@@ -1,0 +1,56 @@
+{
+  "name": "Warden",
+  "formattedName": "warden",
+  "image": "warden_Img.png",
+  "icon": "warden_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "m590a1": {
+        "name": "M590A1",
+        "type": "shotgun",
+        "image": "m590a1_Image.png"
+      },
+      "mpx": {
+        "name": "MPX",
+        "type": "submachine_gun",
+        "image": "mpx_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "p-10c": {
+        "name": "P-10C",
+        "type": "handgun",
+        "image": "p-10c_Image.png"
+      },
+      "smg-12": {
+        "name": "SMG-12",
+        "type": "machine_pistol",
+        "image": "smg-12_Image.png"
+      }
+    },
+    "gadget": {
+      "deployable_shield": {
+        "name": "Deployable_Shield",
+        "type": "none",
+        "image": "deployable_shield_Image.png"
+      },
+      "nitro_cell": {
+        "name": "Nitro_Cell",
+        "type": "none",
+        "image": "nitro_cell_Image.png"
+      },
+      "observation_blocker": {
+        "name": "Observation_Blocker",
+        "type": "none",
+        "image": "observation_blocker_Image.png"
+      }
+    },
+    "unique_ability": {
+      "glance_smart_glasses": {
+        "name": "Glance_Smart_Glasses",
+        "type": "none",
+        "image": "glance_smart_glasses_Image.png"
+      }
+    }
+  }
+}

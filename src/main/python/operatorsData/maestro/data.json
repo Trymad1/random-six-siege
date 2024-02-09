@@ -1,0 +1,56 @@
+{
+  "name": "Maestro",
+  "formattedName": "maestro",
+  "image": "maestro_Img.png",
+  "icon": "maestro_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "alda_5.56": {
+        "name": "ALDA_5.56",
+        "type": "light_machine_gun",
+        "image": "alda_5.56_Image.png"
+      },
+      "acs12": {
+        "name": "ACS12",
+        "type": "shotgun",
+        "image": "acs12_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "keratos_.357": {
+        "name": "Keratos_.357",
+        "type": "handgun",
+        "image": "keratos_.357_Image.png"
+      },
+      "bailiff_410": {
+        "name": "Bailiff_410",
+        "type": "handgun",
+        "image": "bailiff_410_Image.png"
+      }
+    },
+    "gadget": {
+      "barbed_wire": {
+        "name": "Barbed_Wire",
+        "type": "none",
+        "image": "barbed_wire_Image.png"
+      },
+      "impact_grenade": {
+        "name": "Impact_Grenade",
+        "type": "none",
+        "image": "impact_grenade_Image.png"
+      },
+      "observation_blocker": {
+        "name": "Observation_Blocker",
+        "type": "none",
+        "image": "observation_blocker_Image.png"
+      }
+    },
+    "unique_ability": {
+      "evil_eye": {
+        "name": "Evil_Eye",
+        "type": "none",
+        "image": "evil_eye_Image.png"
+      }
+    }
+  }
+}

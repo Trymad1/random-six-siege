@@ -3,17 +3,20 @@ import os
 import json
 from bs4 import BeautifulSoup, Tag, NavigableString;
 
-OPERATORS_DATA_PATH = 'operatorsData'
+OPERATORS_DATA_PATH = './operatorsData'
 # targetPath = 'src/main/resources/com/trymad/' + OPERATORS_DATA_PATH
 targetPath = OPERATORS_DATA_PATH
 operatorsList = {}
 operatorCount = 0;
 
+operators = []
 URL = "https://www.ubisoft.com/en-us/game/rainbow-six/siege/game-info/operators"
-operatorsHtml = requests.get(URL)
 
-soup = BeautifulSoup(operatorsHtml.text, 'html.parser')
-operators = soup.find('div', class_='oplist__cards__wrapper')
+def loadPage():
+    global operators
+    operatorsHtml = requests.get(URL)
+    soup = BeautifulSoup(operatorsHtml.text, 'html.parser')
+    operators = soup.find('div', class_='oplist__cards__wrapper')
 
 def loadOperatorData(operatorDiv):
     global operatorCount
@@ -111,6 +114,13 @@ def loadOperatorWeapons(operatorName):
     print(f'{operatorName} weapons loaded')
     return loadout;
 
+def getExistedOperators():
+    opList = []
+    for operatorDiv in operators:
+        opName = operatorDiv.find('span').text.strip()
+        opFormattedName = getFormattedName(opName)
+        opList.append(opFormattedName)
+    return opList
 
 def loadAllOperators():
     loadedOp = 0;
@@ -137,3 +147,7 @@ def loadOp(name):
 # Загрузка изображений с оперативниками, создание папок
 def getFormattedName(name):
     return name.replace('Ã', 'A').replace('ä', 'a').replace('Ø', 'O').replace('ã', 'a').replace('"', "").lower()
+
+def setTargetPath(relativeTargetPath):
+    global targetPath
+    targetPath = relativeTargetPath

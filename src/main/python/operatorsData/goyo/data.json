@@ -1,0 +1,51 @@
+{
+  "name": "Goyo",
+  "formattedName": "goyo",
+  "image": "goyo_Img.png",
+  "icon": "goyo_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "vector_.45_acp": {
+        "name": "Vector_.45_ACP",
+        "type": "submachine_gun",
+        "image": "vector_.45_acp_Image.png"
+      },
+      "tcsg12": {
+        "name": "TCSG12",
+        "type": "shotgun",
+        "image": "tcsg12_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "p229": {
+        "name": "P229",
+        "type": "handgun",
+        "image": "p229_Image.png"
+      }
+    },
+    "gadget": {
+      "proximity_alarm": {
+        "name": "PROXIMITY_ALARM",
+        "type": "none",
+        "image": "proximity_alarm_Image.png"
+      },
+      "bulletproof_camera": {
+        "name": "Bulletproof_camera",
+        "type": "none",
+        "image": "bulletproof_camera_Image.png"
+      },
+      "impact_grenade": {
+        "name": "Impact_Grenade",
+        "type": "none",
+        "image": "impact_grenade_Image.png"
+      }
+    },
+    "unique_ability": {
+      "volc\u00e1n_canister": {
+        "name": "Volc\u00e1n_Canister",
+        "type": "none",
+        "image": "volc\u00e1n_canister_Image.png"
+      }
+    }
+  }
+}

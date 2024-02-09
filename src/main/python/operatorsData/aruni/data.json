@@ -1,0 +1,46 @@
+{
+  "name": "Aruni",
+  "formattedName": "aruni",
+  "image": "aruni_Img.png",
+  "icon": "aruni_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "p10_roni": {
+        "name": "P10_RONI",
+        "type": "submachine_gun",
+        "image": "p10_roni_Image.png"
+      },
+      "mk_14_ebr": {
+        "name": "Mk_14_EBR",
+        "type": "marksman_rifle",
+        "image": "mk_14_ebr_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "prb92": {
+        "name": "PRB92",
+        "type": "handgun",
+        "image": "prb92_Image.png"
+      }
+    },
+    "gadget": {
+      "bulletproof_camera": {
+        "name": "Bulletproof_camera",
+        "type": "none",
+        "image": "bulletproof_camera_Image.png"
+      },
+      "barbed_wire": {
+        "name": "Barbed_Wire",
+        "type": "none",
+        "image": "barbed_wire_Image.png"
+      }
+    },
+    "unique_ability": {
+      "surya_gate": {
+        "name": "Surya_Gate",
+        "type": "none",
+        "image": "surya_gate_Image.png"
+      }
+    }
+  }
+}

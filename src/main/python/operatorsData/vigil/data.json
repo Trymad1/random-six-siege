@@ -1,0 +1,51 @@
+{
+  "name": "Vigil",
+  "formattedName": "vigil",
+  "image": "vigil_Img.png",
+  "icon": "vigil_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "k1a": {
+        "name": "K1A",
+        "type": "submachine_gun",
+        "image": "k1a_Image.png"
+      },
+      "bosg.12.2": {
+        "name": "BOSG.12.2",
+        "type": "shotgun",
+        "image": "bosg.12.2_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "c75_auto": {
+        "name": "C75_Auto",
+        "type": "machine_pistol",
+        "image": "c75_auto_Image.png"
+      },
+      "smg-12": {
+        "name": "SMG-12",
+        "type": "machine_pistol",
+        "image": "smg-12_Image.png"
+      }
+    },
+    "gadget": {
+      "bulletproof_camera": {
+        "name": "Bulletproof_camera",
+        "type": "none",
+        "image": "bulletproof_camera_Image.png"
+      },
+      "impact_grenade": {
+        "name": "Impact_Grenade",
+        "type": "none",
+        "image": "impact_grenade_Image.png"
+      }
+    },
+    "unique_ability": {
+      "erc-7": {
+        "name": "ERC-7",
+        "type": "none",
+        "image": "erc-7_Image.png"
+      }
+    }
+  }
+}
