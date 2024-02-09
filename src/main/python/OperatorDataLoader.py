@@ -10,14 +10,14 @@ def __main__():
 
 Enter the number of the desired option
     """)
+    OperatorParser.loadPage()
     menu()
 
 def menu():
     OperatorParser.setTargetPath(TARGET_RELATIVE_PATH)
     print("1.Check updates")
     print("2.Load all operators")
-    print("3.Load target operator")
-    print("4.Exit")
+    print("3.Exit")
     
     userInput = input("Input: ").lower().strip()
 
@@ -26,8 +26,6 @@ def menu():
     elif userInput == "2":
         loadAllOperators()
     elif userInput == "3":
-        loadTargetOperator()
-    elif userInput == "4":
         sys.exit(0)
     else:
         input("Error: No such option. Press Enter to continue")
@@ -62,6 +60,7 @@ def checkUpdates():
         print(item)
     print("------------------")
     print("Start loading...")
+    print("To stop loading press CTRL + C\n")
     
     names = loadOperatorNamesJson()
     reserved = []
@@ -78,6 +77,7 @@ def checkUpdates():
     with open(OperatorParser.targetPath + "/operatorNames.json", "w") as json_file:
         json.dump(names, json_file, indent=2)
     print(f'\n{loadedCount}/{len(notLoadedOperators)} operators successfully loaded')
+    menu()
     
 def getLoadedOperators():
     directories = loadOperatorNamesJson()
@@ -85,14 +85,8 @@ def getLoadedOperators():
     return directories
     
 def loadAllOperators():
-    
-    if not os.path.exists(OperatorParser.targetPath): os.makedirs(OperatorParser.targetPath)
-    with open(OperatorParser.targetPath + "/operatorNames.json", "w") as f:
-        data = {
-            "1" : "one",
-            "2" : "two"
-        }
-        json.dump(data, f, indent=2)
+    print("To stop loading press CTRL + C")
+    OperatorParser.loadAllOperators()
 
 def loadTargetOperator():
     print("Load target")

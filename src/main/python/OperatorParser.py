@@ -131,7 +131,7 @@ def loadAllOperators():
         loadedOp = loadedOp + 1
     with open(targetPath + "/operatorNames.json", "w") as json_file:
         jsonData = json.dump(operatorsList, json_file, indent=2)
-    print(f"{loadedOp}/70 operators successfull loaded")
+    print(f"\n{loadedOp}/70 operators successfull loaded")
 
 def loadOp(name):
     for operatorDiv in operators:

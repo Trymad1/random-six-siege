@@ -1,0 +1,46 @@
+{
+  "name": "Valkyrie",
+  "formattedName": "valkyrie",
+  "image": "valkyrie_Img.png",
+  "icon": "valkyrie_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "mpx": {
+        "name": "MPX",
+        "type": "submachine_gun",
+        "image": "mpx_Image.png"
+      },
+      "spas-12": {
+        "name": "SPAS-12",
+        "type": "shotgun",
+        "image": "spas-12_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "d-50": {
+        "name": "D-50",
+        "type": "handgun",
+        "image": "d-50_Image.png"
+      }
+    },
+    "gadget": {
+      "impact_grenade": {
+        "name": "Impact_Grenade",
+        "type": "none",
+        "image": "impact_grenade_Image.png"
+      },
+      "nitro_cell": {
+        "name": "Nitro_Cell",
+        "type": "none",
+        "image": "nitro_cell_Image.png"
+      }
+    },
+    "unique_ability": {
+      "black_eye": {
+        "name": "Black_Eye",
+        "type": "none",
+        "image": "black_eye_Image.png"
+      }
+    }
+  }
+}
