@@ -1,15 +1,19 @@
 package com.trymad.controller;
 
+
 import com.trymad.api.OperatorRandomizer;
 import com.trymad.model.OperatorData;
 import com.trymad.model.Weapon;
 import com.trymad.service.FileOperatorRandomiser;
 import com.trymad.service.OperatorDataService;
+import com.trymad.util.OperatorsDirectoryNotFound;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -83,9 +87,18 @@ public class OpRandomController {
 
     public void initialize() {
 
-        OperatorDataService operatorService = new OperatorDataService();
-        randomizer = new FileOperatorRandomiser(operatorService);
-        OperatorData od = randomizer.getRandomOperatorData();
+        final OperatorDataService operatorService = new OperatorDataService();
+        try {
+            randomizer = new FileOperatorRandomiser(operatorService);
+        } catch (OperatorsDirectoryNotFound e) {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Loading error");
+            alert.setHeaderText("Can`t load operators data from operatorsData directory");
+            alert.setContentText("Update operator data by running OperatorDataLoader.exe in the same directory as the jar file");
+            alert.showAndWait();
+            System.exit(1);
+        }
+        final OperatorData od = randomizer.getRandomOperatorData();
         setOperatorData(od);
 
     }
@@ -117,10 +130,10 @@ public class OpRandomController {
         uniqueAbilityLabel.setText(uniqueAbility.name());
         uniqueAbilityType.setText(getTypeForWeapon(uniqueAbility.type()));
 
-        ColorAdjust colorAdjust = new ColorAdjust();
-        colorAdjust.setBrightness(-1.0); // Устанавливаем яркость на минимум
-        colorAdjust.setContrast(-1.0); // Устанавливаем контрастность на минимум
-        colorAdjust.setSaturation(0.0); // Устанавливаем насыщенность на ноль
+        final ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setBrightness(-1.0); 
+        colorAdjust.setContrast(-1.0); 
+        colorAdjust.setSaturation(0.0); 
         uniqueAbilityImg.setEffect(colorAdjust);
     }
 

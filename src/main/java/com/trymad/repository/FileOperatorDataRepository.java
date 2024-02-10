@@ -1,5 +1,6 @@
 package com.trymad.repository;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -8,7 +9,6 @@ import java.util.Optional;
 
 import org.json.JSONObject;
 
-import com.trymad.App;
 import com.trymad.api.JsonUtil;
 import com.trymad.api.Loadout;
 import com.trymad.api.OperatorDataRepository;
@@ -27,8 +27,6 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
 
     @Override
     public Optional<Operator> extractOperatorByName(String opFormattedName) {
-
-        if (!opDirectoryIsExist(opFormattedName)) return Optional.empty();
         final JSONObject dataJson = jsonUtil.getOperatorJson(opFormattedName);
 
         final Image opImage = getOpImage(dataJson);
@@ -40,8 +38,6 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
 
     @Override
     public Optional<Loadout> extractLoadoutByName(String opFormattedName) {
-
-        if (!opDirectoryIsExist(opFormattedName)) return Optional.empty();
         final JSONObject jsonData = jsonUtil.getOperatorJson(opFormattedName);
         
         final Map<WeaponCategory, List<Weapon>> weaponMap = MapLoadout.getWeaponMap();
@@ -81,24 +77,18 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
         return new Weapon(weaponName, weaponType, weaponImage);
     }
 
-    private boolean opDirectoryIsExist(String opFormattedName) {
-        return App.class.getResource(DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/" + opFormattedName) 
-            == null ? false : true;
-
-    }
-
     private Image getOpImage(JSONObject dataJson)  {
-        return new Image(App.class.getResourceAsStream(
+        return new Image(new File(
             DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/" 
             + dataJson.getString("formattedName") + "/"
-            + dataJson.getString("image")));
+            + dataJson.getString("image")).toURI().toString());
     }
     
     private Image getOpIcon(JSONObject dataJson) {
-        return new Image(App.class.getResourceAsStream(
+        return new Image(new File(
             DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/" 
             + dataJson.getString("formattedName") + "/"
-            + dataJson.getString("icon")));
+            + dataJson.getString("icon")).toURI().toString());
     }
 
     private String getOpName(JSONObject dataJson) {
@@ -106,12 +96,12 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
     }
 
     private Image getWeaponImage(String opFormattedName, WeaponCategory type, JSONObject weaponJson) {
-        return new Image(App.class.getResourceAsStream(
+        return new Image(new File(
             DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/"
             + opFormattedName + "/"
             + "loadout/"
             + type.getFormattedName() + "/"
             + weaponJson.getString("name").toLowerCase().replace("\"", "") + "/"
-            + weaponJson.getString("image")));
+            + weaponJson.getString("image")).toURI().toString());
     }
 }
