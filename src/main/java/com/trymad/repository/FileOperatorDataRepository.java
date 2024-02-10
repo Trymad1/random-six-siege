@@ -27,7 +27,6 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
 
     @Override
     public Optional<Operator> extractOperatorByName(String opFormattedName) {
-
         if (!opDirectoryIsExist(opFormattedName)) return Optional.empty();
         final JSONObject dataJson = jsonUtil.getOperatorJson(opFormattedName);
 

@@ -1,0 +1,56 @@
+{
+  "name": "Gridlock",
+  "formattedName": "gridlock",
+  "image": "gridlock_Img.png",
+  "icon": "gridlock_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "f90": {
+        "name": "F90",
+        "type": "assault_rifle",
+        "image": "f90_Image.png"
+      },
+      "m249_saw": {
+        "name": "M249_SAW",
+        "type": "light_machine_gun",
+        "image": "m249_saw_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "super_shorty": {
+        "name": "Super_Shorty",
+        "type": "shotgun",
+        "image": "super_shorty_Image.png"
+      },
+      "sdp_9mm": {
+        "name": "SDP_9mm",
+        "type": "handgun",
+        "image": "sdp_9mm_Image.png"
+      }
+    },
+    "gadget": {
+      "smoke_grenade": {
+        "name": "Smoke_Grenade",
+        "type": "none",
+        "image": "smoke_grenade_Image.png"
+      },
+      "frag_grenade": {
+        "name": "Frag_Grenade",
+        "type": "none",
+        "image": "frag_grenade_Image.png"
+      },
+      "impact_grenade": {
+        "name": "Impact_Grenade",
+        "type": "none",
+        "image": "impact_grenade_Image.png"
+      }
+    },
+    "unique_ability": {
+      "trax_stingers": {
+        "name": "Trax_Stingers",
+        "type": "none",
+        "image": "trax_stingers_Image.png"
+      }
+    }
+  }
+}

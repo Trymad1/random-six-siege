@@ -1,0 +1,46 @@
+{
+  "name": "Zofia",
+  "formattedName": "zofia",
+  "image": "zofia_Img.png",
+  "icon": "zofia_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "lmg-e": {
+        "name": "LMG-E",
+        "type": "light_machine_gun",
+        "image": "lmg-e_Image.png"
+      },
+      "m762": {
+        "name": "M762",
+        "type": "assault_rifle",
+        "image": "m762_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "rg15": {
+        "name": "RG15",
+        "type": "handgun",
+        "image": "rg15_Image.png"
+      }
+    },
+    "gadget": {
+      "breach_charge": {
+        "name": "Breach_Charge",
+        "type": "none",
+        "image": "breach_charge_Image.png"
+      },
+      "claymore": {
+        "name": "Claymore",
+        "type": "none",
+        "image": "claymore_Image.png"
+      }
+    },
+    "unique_ability": {
+      "ks79_lifeline": {
+        "name": "KS79_Lifeline",
+        "type": "none",
+        "image": "ks79_lifeline_Image.png"
+      }
+    }
+  }
+}

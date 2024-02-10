@@ -1,0 +1,56 @@
+{
+  "name": "Glaz",
+  "formattedName": "glaz",
+  "image": "glaz_Img.png",
+  "icon": "glaz_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "ots-03": {
+        "name": "OTs-03",
+        "type": "marksman_rifle",
+        "image": "ots-03_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "pmm": {
+        "name": "PMM",
+        "type": "handgun",
+        "image": "pmm_Image.png"
+      },
+      "gonne-6": {
+        "name": "Gonne-6",
+        "type": "hand_cannon",
+        "image": "gonne-6_Image.png"
+      },
+      "bearing_9": {
+        "name": "Bearing_9",
+        "type": "machine_pistol",
+        "image": "bearing_9_Image.png"
+      }
+    },
+    "gadget": {
+      "smoke_grenade": {
+        "name": "Smoke_Grenade",
+        "type": "none",
+        "image": "smoke_grenade_Image.png"
+      },
+      "frag_grenade": {
+        "name": "Frag_Grenade",
+        "type": "none",
+        "image": "frag_grenade_Image.png"
+      },
+      "claymore": {
+        "name": "Claymore",
+        "type": "none",
+        "image": "claymore_Image.png"
+      }
+    },
+    "unique_ability": {
+      "flip_sight": {
+        "name": "Flip_Sight",
+        "type": "none",
+        "image": "flip_sight_Image.png"
+      }
+    }
+  }
+}

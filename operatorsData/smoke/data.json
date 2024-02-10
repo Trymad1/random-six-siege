@@ -1,0 +1,51 @@
+{
+  "name": "Smoke",
+  "formattedName": "smoke",
+  "image": "smoke_Img.png",
+  "icon": "smoke_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "m590a1": {
+        "name": "M590A1",
+        "type": "shotgun",
+        "image": "m590a1_Image.png"
+      },
+      "fmg-9": {
+        "name": "FMG-9",
+        "type": "submachine_gun",
+        "image": "fmg-9_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "p226_mk_25": {
+        "name": "P226_Mk_25",
+        "type": "handgun",
+        "image": "p226_mk_25_Image.png"
+      },
+      "smg-11": {
+        "name": "SMG-11",
+        "type": "machine_pistol",
+        "image": "smg-11_Image.png"
+      }
+    },
+    "gadget": {
+      "barbed_wire": {
+        "name": "Barbed_Wire",
+        "type": "none",
+        "image": "barbed_wire_Image.png"
+      },
+      "proximity_alarm": {
+        "name": "PROXIMITY_ALARM",
+        "type": "none",
+        "image": "proximity_alarm_Image.png"
+      }
+    },
+    "unique_ability": {
+      "remote_gas_grenade": {
+        "name": "Remote_Gas_Grenade",
+        "type": "none",
+        "image": "remote_gas_grenade_Image.png"
+      }
+    }
+  }
+}

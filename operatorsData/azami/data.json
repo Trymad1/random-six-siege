@@ -1,0 +1,46 @@
+{
+  "name": "Azami",
+  "formattedName": "azami",
+  "image": "azami_Img.png",
+  "icon": "azami_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "9x19svn": {
+        "name": "9X19SVN",
+        "type": "none",
+        "image": "9x19svn_Image.png"
+      },
+      "acs12": {
+        "name": "ACS12",
+        "type": "shotgun",
+        "image": "acs12_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "d-50": {
+        "name": "D-50",
+        "type": "handgun",
+        "image": "d-50_Image.png"
+      }
+    },
+    "gadget": {
+      "impact_grenade": {
+        "name": "Impact_Grenade",
+        "type": "none",
+        "image": "impact_grenade_Image.png"
+      },
+      "barbed_wire": {
+        "name": "Barbed_Wire",
+        "type": "none",
+        "image": "barbed_wire_Image.png"
+      }
+    },
+    "unique_ability": {
+      "kiba_barrier": {
+        "name": "KIBA_BARRIER",
+        "type": "none",
+        "image": "kiba_barrier_Image.png"
+      }
+    }
+  }
+}

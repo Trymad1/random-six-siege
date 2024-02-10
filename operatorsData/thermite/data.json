@@ -1,0 +1,51 @@
+{
+  "name": "Thermite",
+  "formattedName": "thermite",
+  "image": "thermite_Img.png",
+  "icon": "thermite_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "m1014": {
+        "name": "M1014",
+        "type": "shotgun",
+        "image": "m1014_Image.png"
+      },
+      "556xi": {
+        "name": "556xi",
+        "type": "assault_rifle",
+        "image": "556xi_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "5.7_usg": {
+        "name": "5.7_USG",
+        "type": "handgun",
+        "image": "5.7_usg_Image.png"
+      },
+      "m45_meusoc": {
+        "name": "M45_MEUSOC",
+        "type": "handgun",
+        "image": "m45_meusoc_Image.png"
+      }
+    },
+    "gadget": {
+      "smoke_grenade": {
+        "name": "Smoke_Grenade",
+        "type": "none",
+        "image": "smoke_grenade_Image.png"
+      },
+      "stun_grenade": {
+        "name": "Stun_Grenade",
+        "type": "none",
+        "image": "stun_grenade_Image.png"
+      }
+    },
+    "unique_ability": {
+      "exothermic_charge": {
+        "name": "Exothermic_Charge",
+        "type": "none",
+        "image": "exothermic_charge_Image.png"
+      }
+    }
+  }
+}

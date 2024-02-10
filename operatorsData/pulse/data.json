@@ -1,0 +1,56 @@
+{
+  "name": "Pulse",
+  "formattedName": "pulse",
+  "image": "pulse_Img.png",
+  "icon": "pulse_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "ump45": {
+        "name": "UMP45",
+        "type": "submachine_gun",
+        "image": "ump45_Image.png"
+      },
+      "m1014": {
+        "name": "M1014",
+        "type": "shotgun",
+        "image": "m1014_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "5.7_usg": {
+        "name": "5.7_USG",
+        "type": "handgun",
+        "image": "5.7_usg_Image.png"
+      },
+      "m45_meusoc": {
+        "name": "M45_MEUSOC",
+        "type": "handgun",
+        "image": "m45_meusoc_Image.png"
+      }
+    },
+    "gadget": {
+      "nitro_cell": {
+        "name": "Nitro_Cell",
+        "type": "none",
+        "image": "nitro_cell_Image.png"
+      },
+      "deployable_shield": {
+        "name": "Deployable_Shield",
+        "type": "none",
+        "image": "deployable_shield_Image.png"
+      },
+      "observation_blocker": {
+        "name": "Observation_Blocker",
+        "type": "none",
+        "image": "observation_blocker_Image.png"
+      }
+    },
+    "unique_ability": {
+      "cardiac_sensor": {
+        "name": "Cardiac_Sensor",
+        "type": "none",
+        "image": "cardiac_sensor_Image.png"
+      }
+    }
+  }
+}

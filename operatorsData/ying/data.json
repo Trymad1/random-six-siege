@@ -1,0 +1,46 @@
+{
+  "name": "Ying",
+  "formattedName": "ying",
+  "image": "ying_Img.png",
+  "icon": "ying_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "t-95_lsw": {
+        "name": "T-95_LSW",
+        "type": "light_machine_gun",
+        "image": "t-95_lsw_Image.png"
+      },
+      "six12": {
+        "name": "SIX12",
+        "type": "shotgun",
+        "image": "six12_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "q-929": {
+        "name": "Q-929",
+        "type": "handgun",
+        "image": "q-929_Image.png"
+      }
+    },
+    "gadget": {
+      "hard_breach_charge": {
+        "name": "HARD_BREACH_CHARGE",
+        "type": "none",
+        "image": "hard_breach_charge_Image.png"
+      },
+      "smoke_grenade": {
+        "name": "Smoke_Grenade",
+        "type": "none",
+        "image": "smoke_grenade_Image.png"
+      }
+    },
+    "unique_ability": {
+      "candela": {
+        "name": "Candela",
+        "type": "none",
+        "image": "candela_Image.png"
+      }
+    }
+  }
+}

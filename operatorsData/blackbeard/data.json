@@ -1,0 +1,51 @@
+{
+  "name": "Blackbeard",
+  "formattedName": "blackbeard",
+  "image": "blackbeard_Img.png",
+  "icon": "blackbeard_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "mk17_cqb": {
+        "name": "Mk17_CQB",
+        "type": "assault_rifle",
+        "image": "mk17_cqb_Image.png"
+      },
+      "sr-25": {
+        "name": "SR-25",
+        "type": "marksman_rifle",
+        "image": "sr-25_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "d-50": {
+        "name": "D-50",
+        "type": "handgun",
+        "image": "d-50_Image.png"
+      }
+    },
+    "gadget": {
+      "stun_grenade": {
+        "name": "Stun_Grenade",
+        "type": "none",
+        "image": "stun_grenade_Image.png"
+      },
+      "claymore": {
+        "name": "Claymore",
+        "type": "none",
+        "image": "claymore_Image.png"
+      },
+      "impact_grenade": {
+        "name": "Impact_Grenade",
+        "type": "none",
+        "image": "impact_grenade_Image.png"
+      }
+    },
+    "unique_ability": {
+      "rifle_shield": {
+        "name": "Rifle_Shield",
+        "type": "none",
+        "image": "rifle_shield_Image.png"
+      }
+    }
+  }
+}

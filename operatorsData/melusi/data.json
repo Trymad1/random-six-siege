@@ -1,0 +1,46 @@
+{
+  "name": "Melusi",
+  "formattedName": "melusi",
+  "image": "melusi_Img.png",
+  "icon": "melusi_Icon.png",
+  "loadout": {
+    "primary_weapon": {
+      "mp5": {
+        "name": "MP5",
+        "type": "submachine_gun",
+        "image": "mp5_Image.png"
+      },
+      "super_90": {
+        "name": "Super_90",
+        "type": "shotgun",
+        "image": "super_90_Image.png"
+      }
+    },
+    "secondary_weapon": {
+      "rg15": {
+        "name": "RG15",
+        "type": "handgun",
+        "image": "rg15_Image.png"
+      }
+    },
+    "gadget": {
+      "impact_grenade": {
+        "name": "Impact_Grenade",
+        "type": "none",
+        "image": "impact_grenade_Image.png"
+      },
+      "bulletproof_camera": {
+        "name": "Bulletproof_camera",
+        "type": "none",
+        "image": "bulletproof_camera_Image.png"
+      }
+    },
+    "unique_ability": {
+      "banshee_sonic_defense": {
+        "name": "BANSHEE_SONIC_DEFENSE",
+        "type": "none",
+        "image": "banshee_sonic_defense_Image.png"
+      }
+    }
+  }
+}
