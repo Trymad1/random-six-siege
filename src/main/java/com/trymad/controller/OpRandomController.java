@@ -1,5 +1,7 @@
 package com.trymad.controller;
 
+import java.io.File;
+
 import com.trymad.api.OperatorRandomizer;
 import com.trymad.model.OperatorData;
 import com.trymad.model.Weapon;
@@ -11,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
