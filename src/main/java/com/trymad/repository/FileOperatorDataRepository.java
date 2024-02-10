@@ -28,7 +28,6 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
 
     @Override
     public Optional<Operator> extractOperatorByName(String opFormattedName) {
-        // if (!opDirectoryIsExist(opFormattedName)) return Optional.empty();
         final JSONObject dataJson = jsonUtil.getOperatorJson(opFormattedName);
 
         final Image opImage = getOpImage(dataJson);
@@ -40,8 +39,6 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
 
     @Override
     public Optional<Loadout> extractLoadoutByName(String opFormattedName) {
-
-        // if (!opDirectoryIsExist(opFormattedName)) return Optional.empty();
         final JSONObject jsonData = jsonUtil.getOperatorJson(opFormattedName);
         
         final Map<WeaponCategory, List<Weapon>> weaponMap = MapLoadout.getWeaponMap();
@@ -79,12 +76,6 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
             getWeaponImage(jsonData.getString("formattedName"), category, weaponJson);
 
         return new Weapon(weaponName, weaponType, weaponImage);
-    }
-
-    private boolean opDirectoryIsExist(String opFormattedName) {
-        return App.class.getResource(DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/" + opFormattedName) 
-            == null ? false : true;
-
     }
 
     private Image getOpImage(JSONObject dataJson)  {

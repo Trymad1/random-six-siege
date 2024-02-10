@@ -7,11 +7,14 @@ import com.trymad.model.OperatorData;
 import com.trymad.model.Weapon;
 import com.trymad.service.FileOperatorRandomiser;
 import com.trymad.service.OperatorDataService;
+import com.trymad.util.OperatorsDirectoryNotFound;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -87,7 +90,16 @@ public class OpRandomController {
     public void initialize() {
 
         OperatorDataService operatorService = new OperatorDataService();
-        randomizer = new FileOperatorRandomiser(operatorService);
+        try {
+            randomizer = new FileOperatorRandomiser(operatorService);
+        } catch (OperatorsDirectoryNotFound e) {
+            final Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Loading error");
+            alert.setHeaderText("Can`t load operators data from operatorsData directory");
+            alert.setContentText("Update operator data by running OperatorDataLoader.exe in the same directory as the jar file");
+            alert.showAndWait();
+            System.exit(1);
+        }
         OperatorData od = randomizer.getRandomOperatorData();
         setOperatorData(od);
 

@@ -22,12 +22,9 @@ public class JsonFileUtil implements JsonUtil {
             inputStream = new FileInputStream(new File(
                 DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/" + opFormattedName + "/data.json"));
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new OperatorsDirectoryNotFound();
         }
         final StringBuilder content = new StringBuilder();
-        System.out.println(inputStream);
-        System.out.println(opFormattedName);
         try (final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             while((line = reader.readLine()) != null) {
@@ -47,7 +44,7 @@ public class JsonFileUtil implements JsonUtil {
             inputStream = new FileInputStream(new File(
                 DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/operatorNames.json"));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            throw new OperatorsDirectoryNotFound();
         }
         final StringBuilder content = new StringBuilder();
 
