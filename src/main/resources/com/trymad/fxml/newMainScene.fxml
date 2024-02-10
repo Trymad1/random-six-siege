@@ -28,7 +28,7 @@
             </ImageView>
             <Label fx:id="opName" alignment="CENTER" layoutX="11.0" layoutY="376.0" prefHeight="31.0" prefWidth="202.0" text="Label" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
-                  <Font name="SansSerif Bold Italic" size="28.0" />
+                  <Font name="SansSerif Bold Italic" size="26.0" />
                </font>
             </Label>
          </children>
