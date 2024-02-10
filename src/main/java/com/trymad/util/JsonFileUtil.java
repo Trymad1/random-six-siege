@@ -5,12 +5,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import org.json.JSONObject;
 
-import com.trymad.App;
 import com.trymad.api.JsonUtil; 
 
 public class JsonFileUtil implements JsonUtil {

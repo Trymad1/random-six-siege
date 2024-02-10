@@ -9,7 +9,6 @@ import java.util.Optional;
 
 import org.json.JSONObject;
 
-import com.trymad.App;
 import com.trymad.api.JsonUtil;
 import com.trymad.api.Loadout;
 import com.trymad.api.OperatorDataRepository;
