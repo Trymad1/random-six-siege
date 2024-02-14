@@ -9,18 +9,12 @@ import com.trymad.service.FileOperatorRandomiser;
 import com.trymad.service.OperatorDataService;
 import com.trymad.util.OperatorsDirectoryNotFound;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.animation.ScaleTransition;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -29,67 +23,24 @@ import javafx.util.Duration;
 
 public class OpRandomController {
 
-    public OperatorRandomizer randomizer;
+    private OperatorRandomizer randomizer;
 
     @FXML
-    public ImageView gadgetImg;
+    private ImageView gadgetImg, opIcon, opImage, primaryWeaponImg,
+                      secondaryWeaponImg, uniqueAbilityImg, randomImage,
+                      attackerImage, defenderImage;
 
     @FXML
-    public Label gadgetLabel;
+    private Label gadgetLabel, gadgetType, opName, primaryWeaponLabel,
+                  primaryWeaponType, secondaryWeaponLabel, secondaryWeaponType,
+                  uniqueAbilityLabel, uniqueAbilityType;
 
     @FXML
-    public Label gadgetType;
+    private AnchorPane mainPane, operatorPane, weaponPane, randomPane,
+                       attackerPane, defenderPane;
 
     @FXML
-    public AnchorPane mainPane;
-
-    @FXML
-    public ImageView opIcon;
-
-    @FXML
-    public ImageView opImage;
-
-    @FXML
-    public Label opName;
-
-    @FXML
-    public AnchorPane operatorPane;
-
-    @FXML
-    public ImageView primaryWeaponImg;
-
-    @FXML
-    public Label primaryWeaponLabel;
-
-    @FXML
-    public Label primaryWeaponType;
-
-    @FXML
-    public Button defenderButton, attackerButton;
-
-    @FXML
-    public ImageView secondaryWeaponImg;
-
-    @FXML
-    public Label secondaryWeaponLabel;
-
-    @FXML
-    public Label secondaryWeaponType;
-
-    @FXML
-    public ImageView uniqueAbilityImg, randomImage, attackerImage, defenderImage;
-
-    @FXML
-    public Label uniqueAbilityLabel;
-
-    @FXML
-    public Label uniqueAbilityType;
-
-    @FXML
-    public AnchorPane weaponPane, randomPane, attackerPane, defenderPane;
-
-    @FXML
-    public void randomButtonPressed(MouseEvent event) {
+    public void randomMouseClick(MouseEvent event) {
         setOperatorData(randomizer.getRandomOperatorData());
     }
     
@@ -223,8 +174,6 @@ public class OpRandomController {
         colorAdjust.setContrast(-1.0); 
         colorAdjust.setSaturation(0.0); 
         uniqueAbilityImg.setEffect(colorAdjust);
-
-        System.out.println(data.getOperatorSide());
     }
 
     private String getTypeForWeapon(String weaponType) {

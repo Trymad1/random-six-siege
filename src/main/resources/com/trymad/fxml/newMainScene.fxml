@@ -165,7 +165,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="randomPane" layoutX="468.0" layoutY="381.0" onMouseClicked="#randomButtonPressed" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #2499ff;">
+      <AnchorPane fx:id="randomPane" layoutX="468.0" layoutY="381.0" onMouseClicked="#randomMouseClick" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #2499ff;">
          <children>
             <ImageView fx:id="randomImage" fitHeight="35.0" fitWidth="35.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
