@@ -1,5 +1,6 @@
 .randomButton {
     -fx-background-color: #2499ff;
+    background-color: #2499ff;
 }
 
 .randomButton:hover {

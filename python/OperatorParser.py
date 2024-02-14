@@ -38,17 +38,33 @@ def loadOperatorData(operatorDiv):
 
     loadOperatorImage(opFormattedName, responseOpImage, responseOpIcon)
     loadout = loadOperatorWeapons(opFormattedName)
+    operatorSide = loadOperatorSide(opFormattedName)
     data = {
         "name" : opName,
         "formattedName" : opFormattedName,
         "image" : f'{opFormattedName}_Img.png',
         "icon" : f'{opFormattedName}_Icon.png',
+        "side" : f'{operatorSide}',
         "loadout" : loadout
     }
 
     with open(pathToOpDirectory + "/data.json", "w") as json_file:
         jsonData = json.dump(data, json_file, indent=2)
-        
+
+def loadOperatorSide(opFormattedName):
+    operatorLoadoutHtml = requests.get(f'{URL}/{opFormattedName}');
+    soup = BeautifulSoup(operatorLoadoutHtml.text, 'html.parser')
+    attackerDiv = soup.find('div', class_='operator__header__side__detail attacker')
+    defenderDiv = soup.find('div', class_='operator__header__side__detail defender')
+    operatorSideDiv = None;
+    if attackerDiv == None: 
+        operatorSideDiv = defenderDiv
+    else:
+        operatorSideDiv = attackerDiv;
+    operatorSide = operatorSideDiv.find('span').text.lower().strip()
+    return operatorSide
+
+
 def loadOperatorImage(operatorName, image, icon):
     print(f"Load {operatorName} images")
     with open(f"{targetPath}/{operatorName}/{operatorName}_Img.png", "wb") as file:
