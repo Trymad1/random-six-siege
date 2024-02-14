@@ -2,7 +2,7 @@
 This is my simple pet project created at the request of my friend for more fun gameplay in Rainbow Six siege.
 
 The application is developed in Java using JavaFX 17.0.2. To run, you need at least Java version 17.
-![app_view](https://github.com/Trymad1/random-six-siege/assets/137887620/725cd405-81b5-4d17-939c-085701b35fa6)
+![image](https://github.com/Trymad1/random-six-siege/assets/137887620/bab570f6-ea75-4146-8ddc-909c9478ab72)
 
 ## How to start and update operators list?
 
