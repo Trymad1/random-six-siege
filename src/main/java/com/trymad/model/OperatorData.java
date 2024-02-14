@@ -17,6 +17,10 @@ public record OperatorData (Operator operatorData, Loadout loadoutData) {
         return operatorData.name();
     }
 
+    public final OperatorSide getOperatorSide() {
+        return operatorData.side();
+    }
+
     public final String getOperatorFormattedName() {
         return operatorData.getFormattedName();
     }

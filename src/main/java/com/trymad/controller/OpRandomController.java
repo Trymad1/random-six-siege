@@ -88,8 +88,6 @@ public class OpRandomController {
     @FXML
     public AnchorPane weaponPane, randomPane, attackerPane, defenderPane;
 
-    private OperatorSide currentSide = OperatorSide.DEFENDER;
-
     @FXML
     public void randomButtonPressed(MouseEvent event) {
         setOperatorData(randomizer.getRandomOperatorData());
@@ -97,17 +95,18 @@ public class OpRandomController {
     
     @FXML
     public void attackerButtonPressed(MouseEvent event) {
-        if (!currentSide.equals(OperatorSide.DEFENDER)) return;
+        if (!randomizer.getSide().equals(OperatorSide.DEFENDER)) return;
         
         swapOpacity(attackerImage, defenderImage);
-        currentSide = OperatorSide.ATTACKER;
+        randomizer.setSide(OperatorSide.ATTACKER);
     }
 
+    @FXML
     public void defenderButtonPressed(MouseEvent event) {
-        if (!currentSide.equals(OperatorSide.ATTACKER)) return;
+        if (!randomizer.getSide().equals(OperatorSide.ATTACKER)) return;
         
         swapOpacity(defenderImage, attackerImage);
-        currentSide = OperatorSide.DEFENDER;
+        randomizer.setSide(OperatorSide.DEFENDER);
     }
 
     private void swapOpacity(ImageView image1, ImageView image2) {
@@ -224,6 +223,8 @@ public class OpRandomController {
         colorAdjust.setContrast(-1.0); 
         colorAdjust.setSaturation(0.0); 
         uniqueAbilityImg.setEffect(colorAdjust);
+
+        System.out.println(data.getOperatorSide());
     }
 
     private String getTypeForWeapon(String weaponType) {

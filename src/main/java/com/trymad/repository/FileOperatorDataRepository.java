@@ -14,6 +14,7 @@ import com.trymad.api.Loadout;
 import com.trymad.api.OperatorDataRepository;
 import com.trymad.model.MapLoadout;
 import com.trymad.model.Operator;
+import com.trymad.model.OperatorSide;
 import com.trymad.model.Weapon;
 import com.trymad.model.WeaponCategory;
 import com.trymad.util.DirectoryUtils;
@@ -32,8 +33,9 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
         final Image opImage = getOpImage(dataJson);
         final Image opIcon = getOpIcon(dataJson);
         final String opName = getOpName(dataJson);
+        final OperatorSide side = getOpSide(dataJson);
 
-        return Optional.of(new Operator(opName, opImage, opIcon));
+        return Optional.of(new Operator(opName, side, opImage, opIcon));
     }
 
     @Override
@@ -93,6 +95,10 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
 
     private String getOpName(JSONObject dataJson) {
         return dataJson.getString("name");
+    }
+
+    private OperatorSide getOpSide(JSONObject dataJson) {
+        return OperatorSide.valueOf(dataJson.getString("side").toUpperCase());
     }
 
     private Image getWeaponImage(String opFormattedName, WeaponCategory type, JSONObject weaponJson) {

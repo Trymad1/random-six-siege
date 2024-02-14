@@ -4,30 +4,45 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import com.trymad.api.Loadout;
 import com.trymad.api.OperatorAPI;
 import com.trymad.api.OperatorRandomizer;
 import com.trymad.model.MapLoadout;
 import com.trymad.model.OperatorData;
+import com.trymad.model.OperatorSide;
 import com.trymad.model.Weapon;
 import com.trymad.model.WeaponCategory;
 
 public class FileOperatorRandomiser implements OperatorRandomizer {
 
     private List<OperatorData> operators;
+    private List<OperatorData> defenders;
+    private List<OperatorData> attackers;
+
     private final Random random;
+    private OperatorSide currentSide;
 
     public FileOperatorRandomiser(OperatorAPI api) {
+        currentSide = OperatorSide.DEFENDER;
         random = new Random();
         operators = api.getOperators();
+        defenders = getOperatorsBySide(operators, OperatorSide.DEFENDER);
+        attackers = getOperatorsBySide(operators, OperatorSide.ATTACKER);
+    }
+
+    @Override
+    public void setSide(OperatorSide side) {
+        this.currentSide = side;
     }
 
     @Override
     public OperatorData getRandomOperatorData() {
-        final int randomOperatorIndex = random.nextInt(0, operators.size());
+        final List<OperatorData> operatorsPull = getChoosedSideOperators();
+        final int randomOperatorIndex = random.nextInt(0, operatorsPull.size());
 
-        final OperatorData operatorData = operators.get(randomOperatorIndex);
+        final OperatorData operatorData = operatorsPull.get(randomOperatorIndex);
 
         int randomPrimaryWeaponIndex = random.nextInt(0, operatorData.getPrimaryWeapons().size());
         int randomSecondaryWeaponIndex = random.nextInt(0, operatorData.getSecondaryWeapons().size());
@@ -56,5 +71,19 @@ public class FileOperatorRandomiser implements OperatorRandomizer {
         final Loadout randomLoadout = new MapLoadout(weaponMap);
         return new OperatorData(operatorData.operatorData(), randomLoadout);
     }
-    
+
+    private List<OperatorData> getOperatorsBySide(List<OperatorData> allOperators, OperatorSide side) {
+        return allOperators.stream()
+        .filter(operator -> operator.getOperatorSide().equals(side))
+        .collect(Collectors.toList());
+    }
+
+    private List<OperatorData> getChoosedSideOperators() {
+        return currentSide.equals(OperatorSide.ATTACKER) ? attackers : defenders;
+    }
+
+    @Override
+    public OperatorSide getSide() {
+        return currentSide;
+    }
 }
