@@ -15,7 +15,7 @@ import com.trymad.model.OperatorSide;
 import com.trymad.model.Weapon;
 import com.trymad.model.WeaponCategory;
 
-public class FileOperatorRandomiser implements OperatorRandomizer {
+public class OperatorRandomizerService implements OperatorRandomizer {
 
     private List<OperatorData> operators;
     private List<OperatorData> defenders;
@@ -24,7 +24,7 @@ public class FileOperatorRandomiser implements OperatorRandomizer {
     private final Random random;
     private OperatorSide currentSide;
 
-    public FileOperatorRandomiser(OperatorAPI api) {
+    public OperatorRandomizerService(OperatorAPI api) {
         currentSide = OperatorSide.DEFENDER;
         random = new Random();
         operators = api.getOperators();

@@ -1,19 +1,20 @@
 package com.trymad.controller;
 
 
+import org.json.JSONException;
+
 import com.trymad.api.OperatorRandomizer;
 import com.trymad.model.OperatorData;
 import com.trymad.model.OperatorSide;
 import com.trymad.model.Weapon;
-import com.trymad.service.FileOperatorRandomiser;
+import com.trymad.service.OperatorRandomizerService;
 import com.trymad.service.OperatorDataService;
+import com.trymad.util.ExceptionAlertFactory;
 import com.trymad.util.OperatorsDirectoryNotFound;
 
 import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -40,12 +41,12 @@ public class OpRandomController {
                        attackerPane, defenderPane;
 
     @FXML
-    public void randomMouseClick(MouseEvent event) {
+    private void randomMouseClick(MouseEvent event) {
         setOperatorData(randomizer.getRandomOperatorData());
     }
     
     @FXML
-    public void attackerButtonPressed(MouseEvent event) {
+    private void attackerButtonPressed(MouseEvent event) {
         if (!randomizer.getSide().equals(OperatorSide.DEFENDER)) return;
         
         swapOpacity(attackerImage, defenderImage);
@@ -53,7 +54,7 @@ public class OpRandomController {
     }
 
     @FXML
-    public void defenderButtonPressed(MouseEvent event) {
+    private void defenderButtonPressed(MouseEvent event) {
         if (!randomizer.getSide().equals(OperatorSide.ATTACKER)) return;
         
         swapOpacity(defenderImage, attackerImage);
@@ -66,83 +67,26 @@ public class OpRandomController {
         image2.setOpacity(opacity);
     } 
 
-    public void initialize() {
+    @FXML
+    private void initialize() {
 
         final OperatorDataService operatorService = new OperatorDataService();
         try {
-            randomizer = new FileOperatorRandomiser(operatorService);
+            randomizer = new OperatorRandomizerService(operatorService);
         } catch (OperatorsDirectoryNotFound e) {
-            final Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Loading error");
-            alert.setHeaderText("Can`t load operators data from operatorsData directory");
-            alert.setContentText("Update operator data by running OperatorDataLoader.exe in the same directory as the jar file");
-            alert.showAndWait();
+            ExceptionAlertFactory.createAlert(e);
+            System.exit(1);
+        } catch (JSONException e) {
+            ExceptionAlertFactory.createAlert(e);
             System.exit(1);
         }
 
         final OperatorData od = randomizer.getRandomOperatorData();
         setOperatorData(od);
-
-        ScaleTransition scaleInTransition = new ScaleTransition(Duration.millis(150), randomImage);
-        scaleInTransition.setToX(1.2);
-        scaleInTransition.setToY(1.2);
-
-        ScaleTransition scaleOutTransition = new ScaleTransition(Duration.millis(150), randomImage);
-        scaleOutTransition.setToX(1.0);
-        scaleOutTransition.setToY(1.0);
-
-        ScaleTransition scaleInTransition1 = new ScaleTransition(Duration.millis(150), attackerImage);
-        scaleInTransition1.setToX(1.2);
-        scaleInTransition1.setToY(1.2);
-
-        ScaleTransition scaleOutTransition1 = new ScaleTransition(Duration.millis(150), attackerImage);
-        scaleOutTransition1.setToX(1.0);
-        scaleOutTransition1.setToY(1.0);
-
-        ScaleTransition scaleInTransition2 = new ScaleTransition(Duration.millis(150), defenderImage);
-        scaleInTransition2.setToX(1.2);
-        scaleInTransition2.setToY(1.2);
-
-        ScaleTransition scaleOutTransition2 = new ScaleTransition(Duration.millis(150), defenderImage);
-        scaleOutTransition2.setToX(1.0);
-        scaleOutTransition2.setToY(1.0);
-
-        // Устанавливаем обработчик события наведения мыши на изображение
-        randomPane.setOnMouseEntered(event -> {
-            // Запускаем анимацию увеличения масштаба
-            scaleInTransition.playFromStart();
-        });
-
-        // Устанавливаем обработчик события ухода мыши с изображения
-        randomPane.setOnMouseExited(event -> {
-            // Запускаем анимацию уменьшения масштаба
-            scaleOutTransition.playFromStart();
-        });
-
-        attackerPane.setOnMouseEntered(event -> {
-            // Запускаем анимацию увеличения масштаба
-            scaleInTransition1.playFromStart();
-        });
-
-        // Устанавливаем обработчик события ухода мыши с изображения
-        attackerPane.setOnMouseExited(event -> {
-            // Запускаем анимацию уменьшения масштаба
-            scaleOutTransition1.playFromStart();
-        });
-
-        defenderPane.setOnMouseEntered(event -> {
-            // Запускаем анимацию увеличения масштаба
-            scaleInTransition2.playFromStart();
-        });
-
-        // Устанавливаем обработчик события ухода мыши с изображения
-        defenderPane.setOnMouseExited(event -> {
-            // Запускаем анимацию уменьшения масштаба
-            scaleOutTransition2.playFromStart();
-        });
+        setAnimations();
     }
 
-    public void setOperatorData(OperatorData data) {
+    private void setOperatorData(OperatorData data) {
         opName.setText(data.operatorData().name().toUpperCase());
         opImage.setImage(data.operatorData().image());
         opIcon.setImage(data.operatorData().icon());
@@ -174,6 +118,56 @@ public class OpRandomController {
         colorAdjust.setContrast(-1.0); 
         colorAdjust.setSaturation(0.0); 
         uniqueAbilityImg.setEffect(colorAdjust);
+    }
+
+    private void setAnimations() {
+        final ScaleTransition scaleInTransition = new ScaleTransition(Duration.millis(150), randomImage);
+        scaleInTransition.setToX(1.2);
+        scaleInTransition.setToY(1.2);
+
+        final ScaleTransition scaleOutTransition = new ScaleTransition(Duration.millis(150), randomImage);
+        scaleOutTransition.setToX(1.0);
+        scaleOutTransition.setToY(1.0);
+
+        final ScaleTransition scaleInTransition1 = new ScaleTransition(Duration.millis(150), attackerImage);
+        scaleInTransition1.setToX(1.2);
+        scaleInTransition1.setToY(1.2);
+
+        final ScaleTransition scaleOutTransition1 = new ScaleTransition(Duration.millis(150), attackerImage);
+        scaleOutTransition1.setToX(1.0);
+        scaleOutTransition1.setToY(1.0);
+
+        final ScaleTransition scaleInTransition2 = new ScaleTransition(Duration.millis(150), defenderImage);
+        scaleInTransition2.setToX(1.2);
+        scaleInTransition2.setToY(1.2);
+
+        final ScaleTransition scaleOutTransition2 = new ScaleTransition(Duration.millis(150), defenderImage);
+        scaleOutTransition2.setToX(1.0);
+        scaleOutTransition2.setToY(1.0);
+
+        randomPane.setOnMouseEntered(event -> {
+            scaleInTransition.playFromStart();
+        });
+
+        randomPane.setOnMouseExited(event -> {
+            scaleOutTransition.playFromStart();
+        });
+
+        attackerPane.setOnMouseEntered(event -> {
+            scaleInTransition1.playFromStart();
+        });
+        
+        attackerPane.setOnMouseExited(event -> {
+            scaleOutTransition1.playFromStart();
+        });
+
+        defenderPane.setOnMouseEntered(event -> {
+            scaleInTransition2.playFromStart();
+        });
+
+        defenderPane.setOnMouseExited(event -> {
+            scaleOutTransition2.playFromStart();
+        });
     }
 
     private String getTypeForWeapon(String weaponType) {
