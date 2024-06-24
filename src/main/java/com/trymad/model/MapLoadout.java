@@ -7,7 +7,7 @@ import java.util.Map;
 
 import com.trymad.api.Loadout;
 
-public record MapLoadout (Map<WeaponCategory, List<Weapon>> weaponMap) implements Loadout {
+public record MapLoadout(Map<WeaponCategory, List<Weapon>> weaponMap) implements Loadout {
 
     @Override
     public List<Weapon> getPrimaryWeapons() {

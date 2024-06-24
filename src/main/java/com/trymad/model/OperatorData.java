@@ -6,8 +6,8 @@ import com.trymad.api.Loadout;
 
 import javafx.scene.image.Image;
 
-public record OperatorData (Operator operatorData, Loadout loadoutData) {
-    
+public record OperatorData(Operator operatorData, Loadout loadoutData) {
+
     @Override
     public final String toString() {
         return operatorData + "\n" + loadoutData;
@@ -50,18 +50,22 @@ public record OperatorData (Operator operatorData, Loadout loadoutData) {
     }
 
     public final Weapon getFirstUniqueAbilities() {
-        return loadoutData.getUniqueAbility().get(0);
+        final List<Weapon> w = loadoutData.getUniqueAbility();
+        return w.size() == 0 ? null : w.get(0);
     }
 
     public final Weapon getFirstPrimaryWeapon() {
-        return loadoutData.getPrimaryWeapons().get(0);
+        final List<Weapon> w = loadoutData.getPrimaryWeapons();
+        return w.size() == 0 ? null : w.get(0);
     }
 
     public final Weapon getFirstSecondaryWeapon() {
-        return loadoutData.getSecondaryWeapons().get(0);
+        final List<Weapon> w = loadoutData.getSecondaryWeapons();
+        return w.size() == 0 ? null : w.get(0);
     }
 
     public final Weapon getFirstGadget() {
-        return loadoutData.getGadgets().get(0);
+        final List<Weapon> w = loadoutData.getGadgets();
+        return w.size() == 0 ? null : w.get(0);
     }
 }

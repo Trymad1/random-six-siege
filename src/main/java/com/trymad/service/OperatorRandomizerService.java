@@ -3,6 +3,7 @@ package com.trymad.service;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -44,22 +45,17 @@ public class OperatorRandomizerService implements OperatorRandomizer {
 
         final OperatorData operatorData = operatorsPull.get(randomOperatorIndex);
 
-        int randomPrimaryWeaponIndex = random.nextInt(0, operatorData.getPrimaryWeapons().size());
-        int randomSecondaryWeaponIndex = random.nextInt(0, operatorData.getSecondaryWeapons().size());
-        int randomGadgetIndex = random.nextInt(0, operatorData.getGadgets().size());
-        int randomUniqueAbilityIndex = random.nextInt(0, operatorData.getUniqueAbilities().size());
+        final List<Weapon> randomPrimaryWeapon = getRandomWeaponAsList(
+                getRandomWeapon(operatorData.getPrimaryWeapons()));
 
-        final List<Weapon> randomPrimaryWeapon = 
-            Collections.singletonList(operatorData.getPrimaryWeapons().get(randomPrimaryWeaponIndex));
-        
-        final List<Weapon> randomSecondaryWeapon = 
-            Collections.singletonList(operatorData.getSecondaryWeapons().get(randomSecondaryWeaponIndex));
+        final List<Weapon> randomSecondaryWeapon = getRandomWeaponAsList(
+                getRandomWeapon(operatorData.getSecondaryWeapons()));
 
-        final List<Weapon> randomGadget =
-            Collections.singletonList(operatorData.getGadgets().get(randomGadgetIndex));
+        final List<Weapon> randomGadget = getRandomWeaponAsList(
+                getRandomWeapon(operatorData.getGadgets()));
 
-        final List<Weapon> randomUniqueAbility =
-            Collections.singletonList(operatorData.getUniqueAbilities().get(randomUniqueAbilityIndex));
+        final List<Weapon> randomUniqueAbility = getRandomWeaponAsList(
+                getRandomWeapon(operatorData.getUniqueAbilities()));
 
         final Map<WeaponCategory, List<Weapon>> weaponMap = MapLoadout.getWeaponMap();
 
@@ -74,12 +70,28 @@ public class OperatorRandomizerService implements OperatorRandomizer {
 
     private List<OperatorData> getOperatorsBySide(List<OperatorData> allOperators, OperatorSide side) {
         return allOperators.stream()
-        .filter(operator -> operator.getOperatorSide().equals(side))
-        .collect(Collectors.toList());
+                .filter(operator -> operator.getOperatorSide().equals(side))
+                .collect(Collectors.toList());
     }
 
     private List<OperatorData> getChoosedSideOperators() {
         return currentSide.equals(OperatorSide.ATTACKER) ? attackers : defenders;
+    }
+
+    private Optional<Weapon> getRandomWeapon(final List<Weapon> weaponsList) {
+        final int listSize = weaponsList.size();
+        if (listSize <= 0) {
+            return Optional.empty();
+        }
+        int randomIndex = random.nextInt(0, listSize);
+        return Optional.of(weaponsList.get(randomIndex));
+    }
+
+    private List<Weapon> getRandomWeaponAsList(Optional<Weapon> weapon) {
+        if (weapon.isPresent())
+            return Collections.singletonList(weapon.get());
+        else
+            return Collections.emptyList();
     }
 
     @Override

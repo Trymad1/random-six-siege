@@ -41,9 +41,9 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
     @Override
     public Optional<Loadout> extractLoadoutByName(String opFormattedName) {
         final JSONObject jsonData = jsonUtil.getOperatorJson(opFormattedName);
-        
+
         final Map<WeaponCategory, List<Weapon>> weaponMap = MapLoadout.getWeaponMap();
-        
+
         for (WeaponCategory category : WeaponCategory.values()) {
             weaponMap.get(category).addAll(getWeaponList(category, jsonData));
         }
@@ -54,10 +54,10 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
     private List<Weapon> getWeaponList(WeaponCategory category, JSONObject jsonData) {
         final List<Weapon> weaponList = new ArrayList<>();
         final JSONObject weaponsCategoryJson = jsonData.getJSONObject("loadout")
-            .getJSONObject(category.getFormattedName());
-        
+                .getJSONObject(category.getFormattedName());
+
         final Iterator<String> weaponsIterator = weaponsCategoryJson.keys();
-        while(weaponsIterator.hasNext()) {
+        while (weaponsIterator.hasNext()) {
             final String weaponFormattedName = weaponsIterator.next();
             weaponList.add(getWeapon(weaponFormattedName, category, jsonData));
         }
@@ -66,31 +66,32 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
     }
 
     private Weapon getWeapon(
-        String weaponFormattedName, WeaponCategory category, JSONObject jsonData) {
+            String weaponFormattedName, WeaponCategory category, JSONObject jsonData) {
         final JSONObject weaponJson = jsonData.getJSONObject("loadout")
-        .getJSONObject(category.getFormattedName())
-        .getJSONObject(weaponFormattedName);
+                .getJSONObject(category.getFormattedName())
+                .getJSONObject(weaponFormattedName);
 
         final String weaponName = weaponJson.getString("name");
         final String weaponType = weaponJson.getString("type");
-        final Image weaponImage = 
-            getWeaponImage(jsonData.getString("formattedName"), category, weaponJson);
+        final Image weaponImage = getWeaponImage(jsonData.getString("formattedName"), category, weaponJson);
 
         return new Weapon(weaponName, weaponType, weaponImage);
     }
 
-    private Image getOpImage(JSONObject dataJson)  {
+    private Image getOpImage(JSONObject dataJson) {
         return new Image(new File(
-            DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/" 
-            + dataJson.getString("formattedName") + "/"
-            + dataJson.getString("image")).toURI().toString());
+                DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/"
+                        + dataJson.getString("formattedName") + "/"
+                        + dataJson.getString("image"))
+                .toURI().toString());
     }
-    
+
     private Image getOpIcon(JSONObject dataJson) {
         return new Image(new File(
-            DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/" 
-            + dataJson.getString("formattedName") + "/"
-            + dataJson.getString("icon")).toURI().toString());
+                DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/"
+                        + dataJson.getString("formattedName") + "/"
+                        + dataJson.getString("icon"))
+                .toURI().toString());
     }
 
     private String getOpName(JSONObject dataJson) {
@@ -103,11 +104,12 @@ public class FileOperatorDataRepository implements OperatorDataRepository {
 
     private Image getWeaponImage(String opFormattedName, WeaponCategory type, JSONObject weaponJson) {
         return new Image(new File(
-            DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/"
-            + opFormattedName + "/"
-            + "loadout/"
-            + type.getFormattedName() + "/"
-            + weaponJson.getString("name").toLowerCase().replace("\"", "") + "/"
-            + weaponJson.getString("image")).toURI().toString());
+                DirectoryUtils.RELATIVE_DIRECTORY_PATH + "/"
+                        + opFormattedName + "/"
+                        + "loadout/"
+                        + type.getFormattedName() + "/"
+                        + weaponJson.getString("name").toLowerCase().replace("\"", "") + "/"
+                        + weaponJson.getString("image"))
+                .toURI().toString());
     }
 }

@@ -1,6 +1,5 @@
 package com.trymad.controller;
 
-
 import org.json.JSONException;
 
 import com.trymad.api.OperatorRandomizer;
@@ -21,42 +20,43 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
-
 public class OpRandomController {
 
     private OperatorRandomizer randomizer;
 
     @FXML
     private ImageView gadgetImg, opIcon, opImage, primaryWeaponImg,
-                      secondaryWeaponImg, uniqueAbilityImg, randomImage,
-                      attackerImage, defenderImage;
+            secondaryWeaponImg, uniqueAbilityImg, randomImage,
+            attackerImage, defenderImage;
 
     @FXML
     private Label gadgetLabel, gadgetType, opName, primaryWeaponLabel,
-                  primaryWeaponType, secondaryWeaponLabel, secondaryWeaponType,
-                  uniqueAbilityLabel, uniqueAbilityType;
+            primaryWeaponType, secondaryWeaponLabel, secondaryWeaponType,
+            uniqueAbilityLabel, uniqueAbilityType;
 
     @FXML
     private AnchorPane mainPane, operatorPane, weaponPane, randomPane,
-                       attackerPane, defenderPane;
+            attackerPane, defenderPane;
 
     @FXML
     private void randomMouseClick(MouseEvent event) {
         setOperatorData(randomizer.getRandomOperatorData());
     }
-    
+
     @FXML
     private void attackerButtonPressed(MouseEvent event) {
-        if (!randomizer.getSide().equals(OperatorSide.DEFENDER)) return;
-        
+        if (!randomizer.getSide().equals(OperatorSide.DEFENDER))
+            return;
+
         swapOpacity(attackerImage, defenderImage);
         randomizer.setSide(OperatorSide.ATTACKER);
     }
 
     @FXML
     private void defenderButtonPressed(MouseEvent event) {
-        if (!randomizer.getSide().equals(OperatorSide.ATTACKER)) return;
-        
+        if (!randomizer.getSide().equals(OperatorSide.ATTACKER))
+            return;
+
         swapOpacity(defenderImage, attackerImage);
         randomizer.setSide(OperatorSide.DEFENDER);
     }
@@ -65,7 +65,7 @@ public class OpRandomController {
         final double opacity = image1.getOpacity();
         image1.setOpacity(image2.getOpacity());
         image2.setOpacity(opacity);
-    } 
+    }
 
     @FXML
     private void initialize() {
@@ -86,6 +86,7 @@ public class OpRandomController {
         setAnimations();
     }
 
+    // TODO fix hardcode setinfo in labels and image
     private void setOperatorData(OperatorData data) {
         opName.setText(data.operatorData().name().toUpperCase());
         opImage.setImage(data.operatorData().image());
@@ -96,27 +97,50 @@ public class OpRandomController {
         final Weapon gadget = data.getFirstGadget();
         final Weapon uniqueAbility = data.getFirstUniqueAbilities();
 
-        gadgetImg.setImage(gadget.image());
-        primaryWeaponImg.setImage(primaryWeapon.image());
-        secondaryWeaponImg.setImage(secondaryWeapon.image());
-        uniqueAbilityImg.setImage(uniqueAbility.image());
+        if (gadget != null) {
+            gadgetImg.setImage(gadget.image());
+            gadgetLabel.setText(gadget.name());
+            gadgetType.setText(getTypeForWeapon(gadget.type()));
+        } else {
+            gadgetImg.setImage(null);
+            gadgetLabel.setText("");
+            gadgetType.setText("");
+        }
 
-        gadgetLabel.setText(gadget.name());
-        gadgetType.setText(getTypeForWeapon(gadget.type()));
-        
-        primaryWeaponLabel.setText(primaryWeapon.name());
-        primaryWeaponType.setText(getTypeForWeapon(primaryWeapon.type()));
+        if (primaryWeapon != null) {
+            primaryWeaponImg.setImage(primaryWeapon.image());
+            primaryWeaponLabel.setText(primaryWeapon.name());
+            primaryWeaponType.setText(getTypeForWeapon(primaryWeapon.type()));
+        } else {
+            primaryWeaponImg.setImage(null);
+            primaryWeaponLabel.setText("");
+            primaryWeaponType.setText("");
+        }
 
-        secondaryWeaponLabel.setText(secondaryWeapon.name());
-        secondaryWeaponType.setText(getTypeForWeapon(secondaryWeapon.type()));
+        if (secondaryWeapon != null) {
+            secondaryWeaponImg.setImage(secondaryWeapon.image());
+            secondaryWeaponLabel.setText(secondaryWeapon.name());
+            secondaryWeaponType.setText(getTypeForWeapon(secondaryWeapon.type()));
+        } else {
+            secondaryWeaponImg.setImage(null);
+            secondaryWeaponLabel.setText("");
+            secondaryWeaponType.setText("");
+        }
 
-        uniqueAbilityLabel.setText(uniqueAbility.name());
-        uniqueAbilityType.setText(getTypeForWeapon(uniqueAbility.type()));
+        if (uniqueAbility != null) {
+            uniqueAbilityImg.setImage(uniqueAbility.image());
+            uniqueAbilityLabel.setText(uniqueAbility.name());
+            uniqueAbilityType.setText(getTypeForWeapon(uniqueAbility.type()));
+        } else {
+            uniqueAbilityImg.setImage(null);
+            uniqueAbilityLabel.setText("");
+            uniqueAbilityType.setText("");
+        }
 
         final ColorAdjust colorAdjust = new ColorAdjust();
-        colorAdjust.setBrightness(-1.0); 
-        colorAdjust.setContrast(-1.0); 
-        colorAdjust.setSaturation(0.0); 
+        colorAdjust.setBrightness(-1.0);
+        colorAdjust.setContrast(-1.0);
+        colorAdjust.setSaturation(0.0);
         uniqueAbilityImg.setEffect(colorAdjust);
     }
 
@@ -156,7 +180,7 @@ public class OpRandomController {
         attackerPane.setOnMouseEntered(event -> {
             scaleInTransition1.playFromStart();
         });
-        
+
         attackerPane.setOnMouseExited(event -> {
             scaleOutTransition1.playFromStart();
         });
@@ -175,4 +199,3 @@ public class OpRandomController {
     }
 
 }
-
